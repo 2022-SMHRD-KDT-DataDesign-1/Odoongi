@@ -18,9 +18,9 @@ public class BabyDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String user = "system";
-			String pwd = "12345";
+			String url = "jdbc:oracle:thin:gjaischool-b.ddns.net:1525:xe";
+			String user = "campus_d_0120_3";
+			String pwd = "smhrd3";
 
 			conn = DriverManager.getConnection(url, user, pwd);
 
@@ -109,7 +109,7 @@ public class BabyDAO {
 
 		try {
 
-			String sql = "SELECT * FROM BABY WHERE B_NAME = ?";
+			String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE B_NAME = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getbName());
 
