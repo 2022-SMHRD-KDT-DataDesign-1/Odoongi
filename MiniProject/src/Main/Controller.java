@@ -51,4 +51,17 @@ public class Controller {
 		
 		return true;
 	}
+	
+	// 랭킹 출력
+	public void printRank() {
+		BabyDAO dao = new BabyDAO();
+		ArrayList<BabyDTO> list = dao.printRank();
+
+		for (int i = 0; i < list.size(); i++) {
+			System.out.printf(i + 1 + ". 아기 이름 %d\t", list.get(i).getbName());
+			System.out.printf("아기 나이 %d\t", list.get(i).getAge());
+			System.out.printf("아기 성장률 %d\t", list.get(i).getGrowth());
+			System.out.printf("ID %d\t", list.get(i).getId());
+		}
+	}
 }
