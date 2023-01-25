@@ -18,7 +18,7 @@ public class BabyDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:gjaischool-b.ddns.net:1525:xe";
+			String url = "jdbc:oracle:thin:@gjaischool-b.ddns.net:1525:xe";
 			String user = "campus_d_0120_3";
 			String pwd = "smhrd3";
 

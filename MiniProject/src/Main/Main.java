@@ -2,15 +2,13 @@ package Main;
 
 import java.util.Scanner;
 
-
-
 public class Main {
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
-		
+
 		while (true) {
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]종료 >> ");
 			int select = sc.nextInt();
@@ -68,7 +66,7 @@ public class Main {
 
 				ct.join(dto);
 				ct.NewBaby(dto);
-				
+
 			} else if (select == 3) {
 				// 랭킹
 				ct.printRank();
