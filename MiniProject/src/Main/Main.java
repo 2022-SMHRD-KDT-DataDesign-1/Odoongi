@@ -22,12 +22,6 @@ public class Main {
 				BabyDTO dto = new BabyDTO(id, pwd);
 				Controller ct = new Controller();
 
-				System.out.println("======아기 키우기 시작======");
-				System.out.println("당신의 아기를 등록하세요 !");
-				System.out.print("아기 이름 입력하기 >> ");
-				String bName = sc.next();
-
-				dto.setbName(bName);
 
 				while (true) {
 					System.out.print("[1]밥먹기 [2]놀기 [3]잠자기 [4]공부하기 >> ");
@@ -60,10 +54,14 @@ public class Main {
 
 			} else if (select == 2) {
 				// 회원가입
-				System.out.print("ID  : ");
+				System.out.print("ID를 입력해주세요 >> ");
 				String id = sc.next();
-				System.out.print("PWD : ");
+				System.out.print("비밀번호를 입력해주세요 >> ");
 				String pwd = sc.next();
+				System.out.print("오둥이 이름을 입력해주세요 >> ");
+				String bName = sc.next();
+				
+				dto.setbName(bName);
 
 			} else if (select == 3) {
 				// 랭킹
