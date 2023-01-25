@@ -25,7 +25,7 @@ public class BabyDAO {
 			conn = DriverManager.getConnection(url, user, pwd);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			System.out.println("데이터베이스 연결 실패");
 			e.printStackTrace();
 		}
 
@@ -44,7 +44,6 @@ public class BabyDAO {
 		}
 	}
 
-	
 	
 	public int join(BabyDTO dto) {
 		int row = 0;
@@ -229,7 +228,7 @@ public class BabyDAO {
 				int tired = rs.getInt(1);
 				int hungry = rs.getInt(2);
 				int boring = rs.getInt(3);
-				int knowldege = rs.getInt(3);
+				int knowldege = rs.getInt(4);
 
 				BabyDTO dto2 = new BabyDTO(tired, hungry, boring, knowldege);
 				list.add(dto2);
