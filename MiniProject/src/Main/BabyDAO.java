@@ -18,7 +18,7 @@ public class BabyDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:gjaischool-b.ddns.net:1525:xe";
+			String url = "jdbc:oracle:thin:@gjaischool-b.ddns.net:1525:xe";
 			String user = "campus_d_0120_3";
 			String pwd = "smhrd3";
 
@@ -97,7 +97,7 @@ public class BabyDAO {
 		getCon();
 
 		try {
-			String sql = "SELECT * FROM ( SELECT NAME, AGE, ID, GROWTH FROM BABY WHERE AGE IS NOT NULL ORDER BY AGE AND GROWTH DESC) WHERE ROWNUM <= 10";
+			String sql = "SELECT * FROM ( SELECT NAME, AGE, ID, GROWTH FROM BABY WHERE AGE IS NOT NULL ORDER BY AGE, GROWTH DESC) WHERE ROWNUM <= 10";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
