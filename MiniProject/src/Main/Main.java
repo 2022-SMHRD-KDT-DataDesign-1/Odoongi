@@ -22,6 +22,7 @@ public class Main {
 				BabyDTO dto = new BabyDTO(id, pwd);
 				Controller ct = new Controller();
 
+				// 아기 등록
 				System.out.println("======아기 키우기 시작======");
 				System.out.println("당신의 아기를 등록하세요 !");
 				System.out.print("아기 이름 입력하기 >> ");
@@ -42,13 +43,13 @@ public class Main {
 					} else if (option == 3) {
 						// 잠자기
 						ct.sleep(dto);
-						if (ct.isGameOver(dto) == true)
+						if (ct.isGameOver(dto) == false)
 							break;
 
 					} else if (option == 4) {
 						// 공부
 						ct.study(dto);
-						if (ct.isGameOver(dto) == true)
+						if (ct.isGameOver(dto) == false)
 							break;
 
 					} else {
@@ -69,7 +70,7 @@ public class Main {
 				// 랭킹
 
 			} else if (select == 4) {
-				// 등록
+				System.out.println("종료되었습니다");
 				break;
 			} else {
 				System.out.println("올바른 숫자를 입력하세요");
