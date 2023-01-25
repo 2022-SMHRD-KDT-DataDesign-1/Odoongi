@@ -8,6 +8,9 @@ public class BabyDTO {
 	private int knowledge = 0;
 	private int growth = 0;
 
+	private int age = 0;
+	
+	
 	private String bName;
 	private String id;
 	private String pwd;
@@ -39,6 +42,33 @@ public class BabyDTO {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	
+	public BabyDTO(String bName, int age, String id, int growth) {
+		this.bName = bName;
+		this.age = age;
+		this.id = id;
+		this.growth = growth;
+	}
+
+	
+	public BabyDTO(int tired, int hungry, int boring, int knowledge) {
+		super();
+		this.tired = tired;
+		this.hungry = hungry;
+		this.boring = boring;
+		this.knowledge = knowledge;
+	}
+
+	public BabyDTO(String id, String pwd) {
+		this.id = id;
+		this.pwd = pwd;
+	}
+
+	public BabyDTO(String id, String pwd, String bName) {
+		this.id = id;
+		this.pwd = pwd;
+		this.bName = bName;
 	}
 
 	public int getGrowth() {
@@ -88,5 +118,14 @@ public class BabyDTO {
 	public void setbName(String bName) {
 		this.bName = bName;
 	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 
 }

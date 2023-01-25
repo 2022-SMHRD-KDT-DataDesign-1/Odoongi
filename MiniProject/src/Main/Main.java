@@ -2,12 +2,15 @@ package Main;
 
 import java.util.Scanner;
 
+
+
 public class Main {
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
+		Controller ct = new Controller();
+		
 		while (true) {
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]종료 >> ");
 			int select = sc.nextInt();
@@ -20,7 +23,6 @@ public class Main {
 				String pwd = sc.next();
 
 				BabyDTO dto = new BabyDTO(id, pwd);
-				Controller ct = new Controller();
 
 				// 아기 등록
 				System.out.println("======아기 키우기 시작======");
@@ -29,6 +31,8 @@ public class Main {
 				String bName = sc.next();
 
 				dto.setbName(bName);
+				ct.login(dto);
+				ct.NewBaby(dto);
 
 				while (true) {
 					System.out.print("[1]밥먹기 [2]놀기 [3]잠자기 [4]공부하기 >> ");
@@ -61,14 +65,20 @@ public class Main {
 
 			} else if (select == 2) {
 				// 회원가입
-				System.out.print("ID  : ");
+				System.out.print("ID를 입력해주세요 >> ");
 				String id = sc.next();
-				System.out.print("PWD : ");
+				System.out.print("비밀번호를 입력해주세요 >> ");
 				String pwd = sc.next();
+				System.out.print("오둥이 이름을 입력해주세요 >> ");
+				String bName = sc.next();
+				BabyDTO dto = new BabyDTO(id, pwd, bName);
 
+				ct.join(dto);
+				ct.NewBaby(dto);
+				
 			} else if (select == 3) {
 				// 랭킹
-
+				ct.printRank();
 			} else if (select == 4) {
 				System.out.println("종료되었습니다");
 				break;

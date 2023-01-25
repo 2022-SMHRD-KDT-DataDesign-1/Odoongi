@@ -90,7 +90,61 @@ public class BabyDAO {
 		
 	}
 	
+	public boolean login(BabyDTO dto) {
+
+		getCon();
+		boolean result = false;
+
+		try {
+			String sql = "select * from USER_INFO where id = ? and pw = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			rs = psmt.executeQuery();
+
+			result = rs.next();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return result;
+
+	}
 	
+	// 랭킹 조회
+	public ArrayList<BabyDTO> printRank() {
+		ArrayList<BabyDTO> list = new ArrayList<>();
+
+		getCon();
+
+		try {
+			String sql = "SELECT * FROM ( SELECT NAME, AGE, ID, GROWTH FROM BABY WHERE AGE IS NOT NULL ORDER BY AGE AND GROWTH DESC) WHERE ROWNUM <= 10";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String bName = rs.getString("name");
+				int age = rs.getInt("age");
+				String id = rs.getString("id");
+				int growth = rs.getInt("growth");
+
+				BabyDTO dto2 = new BabyDTO(bName, age, id, growth);
+				list.add(dto2);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+
+		return list;
+	}
 	
 	
 	
