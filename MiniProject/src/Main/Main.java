@@ -67,7 +67,8 @@ public class Main {
 
 			} else if (select == 3) {
 				// 랭킹
-
+				Controller ct = new Controller();
+				ct.printRank();
 			} else if (select == 4) {
 				// 등록
 				break;

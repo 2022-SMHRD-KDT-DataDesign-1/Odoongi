@@ -7,6 +7,7 @@ public class BabyDTO {
 	private int boring = 0;
 	private int knowledge = 0;
 	private int growth = 0;
+	private int age = 0;
 	
 	
 	private String bName;
@@ -27,6 +28,13 @@ public class BabyDTO {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	
+	public BabyDTO(String bName, int age, String id, int growth) {
+		this.bName = bName;
+		this.age = age;
+		this.id = id;
+		this.growth = growth;
 	}
 
 	
@@ -90,5 +98,14 @@ public class BabyDTO {
 	public void setbName(String bName) {
 		this.bName = bName;
 	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 
 }
