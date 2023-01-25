@@ -51,6 +51,12 @@ public class BabyDTO {
 		this.pwd = pwd;
 	}
 
+	public BabyDTO(String id, String pwd, String bName) {
+		this.id = id;
+		this.pwd = pwd;
+		this.bName = bName;
+	}
+
 	public int getGrowth() {
 		return growth;
 	}

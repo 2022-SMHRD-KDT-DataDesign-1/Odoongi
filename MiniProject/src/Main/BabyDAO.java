@@ -45,6 +45,7 @@ public class BabyDAO {
 	}
 
 	
+	
 	public int join(BabyDTO dto) {
 		int row = 0;
 		Scanner sc = new Scanner(System.in);
@@ -88,6 +89,30 @@ public class BabyDAO {
 		return row;
 		
 		
+	}
+	
+	public boolean login(BabyDTO dto) {
+
+		getCon();
+		boolean result = false;
+
+		try {
+			String sql = "select * from USER_INFO where id = ? and pw = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			rs = psmt.executeQuery();
+
+			result = rs.next();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return result;
+
 	}
 	
 	// 랭킹 조회
