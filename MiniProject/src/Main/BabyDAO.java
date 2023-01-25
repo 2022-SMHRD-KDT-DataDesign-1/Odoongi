@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 
 public class BabyDAO {
 
@@ -44,6 +44,61 @@ public class BabyDAO {
 		}
 	}
 
+	
+	public int join(BabyDTO dto) {
+		int row = 0;
+		Scanner sc = new Scanner(System.in);
+
+		try {
+			getCon();
+			String sql = "insert into USER_INFO values (?,?,default)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			row = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 전송 실패");
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return row;
+
+	}
+	
+	
+	public int NewBaby (BabyDTO dto) {
+		int row = 0;
+		
+		try {
+			getCon();
+			String sql = "insert into baby values (?, 0, ? ,default, 0, 100, 100, 100, 100, 100)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getbName());
+			psmt.setString(2, dto.getId());
+			row = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 전송 실패");
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return row;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private int updateBaby(BabyDTO dto, int row) {
 		try {
 			getCon();
