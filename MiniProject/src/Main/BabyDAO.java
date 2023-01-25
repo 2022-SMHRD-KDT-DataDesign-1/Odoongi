@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 
 public class BabyDAO {
 
@@ -42,16 +44,7 @@ public class BabyDAO {
 		}
 	}
 
-	// 잠자기
-	public int sleep(BabyDTO dto) {
-		
-		int row = 0;
-		
-		dto.setTired(dto.getTired() - 90);
-		dto.setBoring(dto.getBoring() - 90);
-		dto.setKnowledge(dto.getKnowledge() - 30);
-		dto.setGrowth(dto.getGrowth() + 1);
-
+	private int updateBaby(BabyDTO dto, int row) {
 		try {
 			getCon();
 
@@ -73,9 +66,72 @@ public class BabyDAO {
 		} finally {
 			getClose();
 		}
-		
 		return row;
 	}
 
+	// 잠자기
+	public int sleep(BabyDTO dto) {
+
+		int row = 0;
+
+		dto.setTired(dto.getTired() - 90);
+		dto.setHungry(dto.getHungry() - 90);
+		dto.setKnowledge(dto.getKnowledge() - 30);
+		dto.setGrowth(dto.getGrowth() + 1);
+
+		row = updateBaby(dto, row);
+
+		return row;
+	}
+
+	// 공부하기
+	public int study(BabyDTO dto) {
+
+		int row = 0;
+
+		dto.setTired(dto.getTired() + 80);
+		dto.setHungry(dto.getHungry() - 30);
+		dto.setBoring(dto.getBoring() + 50);
+		dto.setKnowledge(dto.getKnowledge() + 50);
+		dto.setGrowth(dto.getGrowth() + 1);
+
+		row = updateBaby(dto, row);
+
+		return row;
+	}
 	
+	
+	// 현재 상태 출력
+	public ArrayList<BabyDTO> printBaby(BabyDTO dto) {
+		ArrayList<BabyDTO> list = new ArrayList<>();
+
+		getCon();
+
+		try {
+
+			String sql = "SELECT * FROM BABY WHERE B_NAME = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getbName());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int tired = rs.getInt(1);
+				int hungry = rs.getInt(2);
+				int boring = rs.getInt(3);
+				int knowldege = rs.getInt(3);
+
+				BabyDTO dto2 = new BabyDTO(tired, hungry, boring, knowldege);
+				list.add(dto2);
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+
+		return list;
+	}
 }

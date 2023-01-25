@@ -8,6 +8,14 @@ public class BabyDTO {
 	private int knowledge = 0;
 	private int growth = 0;
 
+	public BabyDTO(int tired, int hungry, int boring, int knowledge) {
+		super();
+		this.tired = tired;
+		this.hungry = hungry;
+		this.boring = boring;
+		this.knowledge = knowledge;
+	}
+	
 	public int getGrowth() {
 		return growth;
 	}
