@@ -158,7 +158,7 @@ public class BabyDAO {
 			getCon();
 
 			String sql = "UPDATE BABY SET GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-					+ "WHERE NAME = ?";
+					+ "WHERE ID = ?";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, dto.getGrowth());

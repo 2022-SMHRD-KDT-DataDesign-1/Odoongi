@@ -21,13 +21,15 @@ public class Controller {
 		}
 	}
 	// 로그인 컨트롤러
-	public void login(BabyDTO dto) {
+	public boolean login(BabyDTO dto) {
 		boolean result = dao.login(dto); 
 		System.out.println(result + "");
 		if (result) {
 			System.out.println("로그인 성공!! 즐거운 플레이 되세요!!");
+			return true;
 		} else {
 			System.out.println("로그인 실패 아이디와 비밀번호를 확인해주세요!!");
+			return false;
 		}
 
 	}

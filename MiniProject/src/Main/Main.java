@@ -22,9 +22,8 @@ public class Main {
 
 				BabyDTO dto = new BabyDTO(id, pwd);
 
-				ct.login(dto);
 
-				while (true) {
+				while (ct.login(dto)) {
 					System.out.print("[1]밥먹기 [2]놀기 [3]잠자기 [4]공부하기 >> ");
 					int option = sc.nextInt();
 
