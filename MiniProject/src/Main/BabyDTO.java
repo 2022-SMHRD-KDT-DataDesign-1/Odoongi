@@ -6,9 +6,9 @@ public class BabyDTO {
 	private int hungry = 100;
 	private int boring = 0;
 	private int knowledge = 0;
-	private int growth = 0;
+	private double growth = 0.0;
 
-	private int age = 0;
+	private int age = (int)growth/10;
 	
 	
 	private String bName;
@@ -59,11 +59,11 @@ public class BabyDTO {
 		this.bName = bName;
 	}
 
-	public int getGrowth() {
+	public double getGrowth() {
 		return growth;
 	}
 
-	public void setGrowth(int growth) {
+	public void setGrowth(double growth) {
 		this.growth = growth;
 	}
 

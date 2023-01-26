@@ -161,7 +161,7 @@ public class BabyDAO {
 					+ "WHERE ID = ?";
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setInt(1, dto.getGrowth());
+			psmt.setDouble(1, dto.getGrowth());
 			psmt.setInt(2, dto.getTired());
 			psmt.setInt(3, dto.getHungry());
 			psmt.setInt(4, dto.getBoring());
@@ -202,7 +202,7 @@ public class BabyDAO {
 		dto.setHungry(dto.getHungry() - 30);
 		dto.setBoring(dto.getBoring() + 50);
 		dto.setKnowledge(dto.getKnowledge() + 50);
-		dto.setGrowth(dto.getGrowth() + 1);
+		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
 
