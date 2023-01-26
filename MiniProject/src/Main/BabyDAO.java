@@ -177,7 +177,20 @@ public class BabyDAO {
 		}
 		return row;
 	}
+// 놀기
+	
+	public int Play(BabyDTO dto) {
+		int row = 0;
 
+		dto.setTired(dto.getTired() - 15);
+		dto.setHungry(dto.getHungry() + 20);
+		dto.setKnowledge(dto.getKnowledge() - 30);
+		dto.setGrowth(dto.getGrowth() + 1);
+
+		row = updateBaby(dto, row);
+
+		return row;
+	}
 	// 밥먹기
 		public int hungry(BabyDTO dto) {
 			// test2

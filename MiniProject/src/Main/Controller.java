@@ -42,7 +42,14 @@ public class Controller {
 		}		
 	}
 	
-	
+	public void Play(BabyDTO dto) {
+		// test test
+		BabyDAO dao = new BabyDAO();
+		int row = dao.Play(dto);
+
+		if (row > 0)
+			printBaby(dto);
+	}
 	//
 	public void hungry(BabyDTO dto) {
 		// test test

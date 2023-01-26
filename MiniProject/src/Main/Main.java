@@ -32,7 +32,10 @@ public class Main {
 						
 					} else if (option == 2) {
 						// 놀기
-						
+						ct.Play(dto);
+						if (ct.isGameOver(dto) == false)
+							System.out.println("GAME OVER");
+							break;
 					} else if (option == 3) {
 						// 잠자기
 						ct.sleep(dto);
