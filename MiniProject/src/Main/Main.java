@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Music music = new Music("C:\\Users\\SMHRD\\Downloads\\뒹굴뒹굴.mp3");
+		Music music = new Music("C:\\Users\\user\\git\\Odoongi\\MiniProject\\src\\뒹굴뒹굴.mp3");
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
 		BabyEmotion baby = new BabyEmotion();
@@ -34,7 +34,7 @@ public class Main {
         
 		// 바꿔보시죠
 		while (true) {
-			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
+			Music music_2 = new Music("C:\\Users\\user\\git\\Odoongi\\MiniProject\\src\\game.mp3");
 			music_2.play(music_2.getMusicPath());
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]게임규칙설명 [5]종료 >> ");
 			int select = sc.nextInt();
@@ -55,24 +55,29 @@ public class Main {
 						int option = sc.nextInt();
 
 						if (option == 1) {
-							ct.hungry(dto);
 							// 밥먹기
+							ct.hungry(dto);
+							baby.hungry();
 						} else if (option == 2) {
 							// 놀기
 							ct.Play(dto);
-						if (ct.isGameOver(dto) == false)
-							System.out.println("GAME OVER");
-							break;
+							baby.play();
+						if (ct.isGameOver(dto) == false) {
+								System.out.println("GAME OVER");
+							}
 						} else if (option == 3) {
 							// 잠자기
 							ct.sleep(dto);
-						if (ct.isGameOver(dto) == false)
+							baby.sleep();
+						if (ct.isGameOver(dto) == false) {
 							System.out.println("GAME OVER");
+							baby.gameover();
 							break;
-
+						}
 						} else if (option == 4) {
 							// 공부
 							ct.study(dto);
+							baby.knowledge();
 //						if (ct.isGameOver(dto) == false)
 //							break;
 
