@@ -38,6 +38,7 @@ public class Main {
 						// 잠자기
 						ct.sleep(dto);
 						if (ct.isGameOver(dto) == false)
+							System.out.println("GAME OVER");
 							break;
 
 					} else if (option == 4) {
