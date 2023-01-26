@@ -81,13 +81,10 @@ public class Controller {
 	public void printBaby(BabyDTO dto) {
 		
 		BabyDAO dao = new BabyDAO();
-		ArrayList<Integer> list = dao.printBaby(dto);
+		dto = dao.printBaby(dto);
 		
-		System.out.printf("피로도 %d\t", list.get(0));
-		System.out.printf("포만감 %d\t", list.get(1));
-		System.out.printf("지루해 %d\t", list.get(2));
-		System.out.printf("지식 %d\n", list.get(3));
-
+		System.out.println(dto.getTired()+" "+dto.getHungry()+" "+dto.getBoring()+" "
+				+dto.getKnowledge());
 	}
 	
 	// 게임 오버 판단

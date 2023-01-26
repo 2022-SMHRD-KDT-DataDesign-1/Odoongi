@@ -144,29 +144,32 @@ public class BabyDAO {
 	}
 
 	private int updateBaby(BabyDTO dto, int row) {
-		try {
-			getCon();
+	      try {
+	         getCon();
 
-			String sql = "UPDATE BABY SET GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-					+ "WHERE ID = ?";
-			psmt = conn.prepareStatement(sql);
+	         String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
+	               + "WHERE ID = ?";
+	         psmt = conn.prepareStatement(sql);
 
-			psmt.setDouble(1, dto.getGrowth());
-			psmt.setInt(2, dto.getTired());
-			psmt.setInt(3, dto.getHungry());
-			psmt.setInt(4, dto.getBoring());
-			psmt.setInt(5, dto.getKnowledge());
-			psmt.setString(6, dto.getId());
+	         dto.setAge((int)dto.getGrowth()/10);
+	         
+	         psmt.setInt(1, dto.getAge());
+	         psmt.setDouble(2, dto.getGrowth());
+	         psmt.setInt(3, dto.getTired());
+	         psmt.setInt(4, dto.getHungry());
+	         psmt.setInt(5, dto.getBoring());
+	         psmt.setInt(6, dto.getKnowledge());
+	         psmt.setString(7, dto.getId());
 
-			row = psmt.executeUpdate();
+	         row = psmt.executeUpdate();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			getClose();
-		}
-		return row;
-	}
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         getClose();
+	      }
+	      return row;
+	   }
 
 // 놀기
 
@@ -231,39 +234,33 @@ public class BabyDAO {
 	}
 
 	// 현재 상태 출력
-	public ArrayList<Integer> printBaby(BabyDTO dto) {
+	public BabyDTO printBaby(BabyDTO dto) {
 
-		ArrayList<Integer> list = new ArrayList<>();
-		
-		getCon();
+	      
+	      getCon();
 
-		try {
+	      try {
 
-			String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE ID = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
+	         String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE ID = ?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, dto.getId());
 
-			rs = psmt.executeQuery();
+	         rs = psmt.executeQuery();
 
-			while (rs.next() == true) {
-				int tired = rs.getInt(1);
-				int hungry = rs.getInt(2);
-				int boring = rs.getInt(3);
-				int knowledge = rs.getInt(4);
+	         if (rs.next() == true) {
+	            dto.setTired(rs.getInt(1)); 
+	            dto.setHungry(rs.getInt(2)); 
+	            dto.setBoring(rs.getInt(3)); 
+	            dto.setKnowledge(rs.getInt(4));; 
+	            
+	         }
 
-				list.add(tired);
-				list.add(hungry);
-				list.add(boring);
-				list.add(knowledge);
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         getClose();
+	      }
 
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			getClose();
-		}
-
-		return list;
-	}
+	      return dto;
+	   }
 }

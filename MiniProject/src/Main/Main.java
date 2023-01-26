@@ -60,7 +60,6 @@ public class Main {
 							System.out.println("올바른 번호를 입력하세요");
 						}
 
-						ct.printBaby(dto);
 					}
 					System.out.println("GAME OVER");
 					break;
