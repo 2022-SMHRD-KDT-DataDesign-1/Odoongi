@@ -44,7 +44,7 @@ public class Controller {
 	}
 	
 	public void hungry(BabyDTO dto) {
-		// test
+		// test test
 		BabyDAO dao = new BabyDAO();
 		int row = dao.hungry(dto);
 
