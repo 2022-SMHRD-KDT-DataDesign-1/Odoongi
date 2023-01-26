@@ -166,7 +166,7 @@ public class BabyDAO {
 			psmt.setInt(3, dto.getHungry());
 			psmt.setInt(4, dto.getBoring());
 			psmt.setInt(5, dto.getKnowledge());
-			psmt.setString(6, dto.getbName());
+			psmt.setString(6, dto.getId());
 
 			row = psmt.executeUpdate();
 
@@ -184,7 +184,7 @@ public class BabyDAO {
 		dto.setTired(dto.getTired() - 15);
 		dto.setHungry(dto.getHungry() + 20);
 		dto.setKnowledge(dto.getKnowledge() - 30);
-		dto.setGrowth(dto.getGrowth() + 1);
+		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
 
@@ -198,7 +198,7 @@ public class BabyDAO {
 			dto.setTired(dto.getTired() - 15);
 			dto.setHungry(dto.getHungry() + 20);
 			dto.setKnowledge(dto.getKnowledge() - 30);
-			dto.setGrowth(dto.getGrowth() + 1);
+			dto.setGrowth(dto.getGrowth() + 1.0);
 
 			row = updateBaby(dto, row);
 
@@ -213,7 +213,7 @@ public class BabyDAO {
 		dto.setTired(dto.getTired() - 90);
 		dto.setHungry(dto.getHungry() - 90);
 		dto.setKnowledge(dto.getKnowledge() - 30);
-		dto.setGrowth(dto.getGrowth() + 1);
+		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
 
