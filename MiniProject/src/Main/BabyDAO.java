@@ -7,8 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class BabyDAO {
+	
+	Random rd = new Random();
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -71,7 +74,7 @@ public class BabyDAO {
 
 		try {
 			getCon();
-			String sql = "insert into baby values (?, 0, ? ,default, 0, 100, 100, 100, 100, 100)";
+			String sql = "insert into baby values (?, 0, ? ,default, 0, 0, 0, 0, 0, 100)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getbName());
 			psmt.setString(2, dto.getId());
@@ -89,28 +92,26 @@ public class BabyDAO {
 
 	public boolean login(BabyDTO dto) {
 
-	      getCon();
-	      boolean result = false;
+		getCon();
+		boolean result = false;
 
-	      try {
-	         String sql = "SELECT NAME, AGE, A.ID, B_DATE, GROWTH"
-	               + ", TIRED, HUNGRY, BORING, KNOWLEDGE"
-	               + " FROM BABY A, USER_INFO B"
-	               + " WHERE B.ID = ? AND B.PASSWORD = ? AND A.ID = B.ID";
-	         
-	         psmt = conn.prepareStatement(sql);
-	         psmt.setString(1, dto.getId());
-	         psmt.setString(2, dto.getPwd());
-	         rs = psmt.executeQuery();
+		try {
+			String sql = "SELECT NAME, AGE, A.ID, B_DATE, GROWTH" + ", TIRED, HUNGRY, BORING, KNOWLEDGE"
+					+ " FROM BABY A, USER_INFO B" + " WHERE B.ID = ? AND B.PASSWORD = ? AND A.ID = B.ID";
 
-	         result = rs.next();
-	         
-	         dto.setAge(rs.getInt("age"));
-	         dto.setGrowth(rs.getInt("growth"));
-	         dto.setTired(rs.getInt("tired"));
-	         dto.setHungry(rs.getInt("hungry"));
-	         dto.setBoring(rs.getInt("boring"));
-	         dto.setKnowledge(rs.getInt("knowledge"));
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			rs = psmt.executeQuery();
+
+			result = rs.next();
+
+			dto.setAge(rs.getInt("age"));
+			dto.setGrowth(rs.getInt("growth"));
+			dto.setTired(rs.getInt("tired"));
+			dto.setHungry(rs.getInt("hungry"));
+			dto.setBoring(rs.getInt("boring"));
+			dto.setKnowledge(rs.getInt("knowledge"));
 
 		} catch (SQLException e) {
 
@@ -155,42 +156,48 @@ public class BabyDAO {
 	}
 
 	private int updateBaby(BabyDTO dto, int row) {
-	      try {
-	         getCon();
+		try {
+			getCon();
 
-	         String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-	               + "WHERE ID = ?";
-	         psmt = conn.prepareStatement(sql);
+			String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
+					+ "WHERE ID = ?";
+			psmt = conn.prepareStatement(sql);
 
-	         dto.setAge((int)dto.getGrowth()/10);
-	         
-	         psmt.setInt(1, dto.getAge());
-	         psmt.setDouble(2, dto.getGrowth());
-	         psmt.setInt(3, dto.getTired());
-	         psmt.setInt(4, dto.getHungry());
-	         psmt.setInt(5, dto.getBoring());
-	         psmt.setInt(6, dto.getKnowledge());
-	         psmt.setString(7, dto.getId());
+			dto.setAge((int) dto.getGrowth() / 10);
 
-	         row = psmt.executeUpdate();
+			psmt.setInt(1, dto.getAge());
+			psmt.setDouble(2, dto.getGrowth());
+			psmt.setInt(3, dto.getTired());
+			psmt.setInt(4, dto.getHungry());
+			psmt.setInt(5, dto.getBoring());
+			psmt.setInt(6, dto.getKnowledge());
+			psmt.setString(7, dto.getId());
 
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      } finally {
-	         getClose();
-	      }
-	      return row;
-	   }
+			row = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return row;
+	}
 
 // 놀기
-
 
 	public int Play(BabyDTO dto) {
 		int row = 0;
 
-		dto.setTired(dto.getTired() - 15);
-		dto.setHungry(dto.getHungry() - 20);
-		dto.setKnowledge(dto.getKnowledge() - 30);
+		if (gotcha() == 1) {
+			dto.setTired(dto.getTired() + 0);
+			dto.setHungry(dto.getHungry() - 0);
+			dto.setBoring(dto.getBoring() - 60);
+			dto.setKnowledge(dto.getKnowledge() - 0);
+			dto.setGrowth(dto.getGrowth() + 2.0);
+		}
+		dto.setTired(dto.getTired() + 15);
+		dto.setHungry(dto.getHungry() - 30);
+		dto.setBoring(dto.getBoring() - 40);
 		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
@@ -202,10 +209,17 @@ public class BabyDAO {
 	public int hungry(BabyDTO dto) {
 		// test2
 		int row = 0;
-
-		dto.setTired(dto.getTired() - 15);
-		dto.setHungry(dto.getHungry() + 20);
-		dto.setKnowledge(dto.getKnowledge() - 30);
+		
+		if (gotcha() == 1) {
+			dto.setTired(dto.getTired() + 5);
+			dto.setHungry(dto.getHungry() + 80);
+			dto.setBoring(dto.getBoring() - 60);
+			dto.setKnowledge(dto.getKnowledge() - 0);
+			dto.setGrowth(dto.getGrowth() + 2.0);
+		}
+		dto.setTired(dto.getTired() + 15);
+		dto.setHungry(dto.getHungry() + 50);
+		dto.setBoring(dto.getBoring() - 20);
 		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
@@ -217,9 +231,17 @@ public class BabyDAO {
 	public int sleep(BabyDTO dto) {
 
 		int row = 0;
+		
+		if (gotcha() == 1) {
+			dto.setTired(dto.getTired() - 100);
+			dto.setHungry(dto.getHungry() - 50);
+			dto.setBoring(dto.getBoring() - 60);
+			dto.setKnowledge(dto.getKnowledge() - 0);
+			dto.setGrowth(dto.getGrowth() + 2.0);
+		}
 
 		dto.setTired(dto.getTired() - 90);
-		dto.setHungry(dto.getHungry() - 90);
+		dto.setHungry(dto.getHungry() - 70);
 		dto.setKnowledge(dto.getKnowledge() - 30);
 		dto.setGrowth(dto.getGrowth() + 1.0);
 
@@ -244,34 +266,41 @@ public class BabyDAO {
 		return row;
 	}
 
+	
 	// 현재 상태 출력
 	public BabyDTO printBaby(BabyDTO dto) {
 
-	      
-	      getCon();
+		getCon();
 
-	      try {
+		try {
 
-	         String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE ID = ?";
-	         psmt = conn.prepareStatement(sql);
-	         psmt.setString(1, dto.getId());
+			String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE ID = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
 
-	         rs = psmt.executeQuery();
+			rs = psmt.executeQuery();
 
-	         if (rs.next() == true) {
-	            dto.setTired(rs.getInt(1)); 
-	            dto.setHungry(rs.getInt(2)); 
-	            dto.setBoring(rs.getInt(3)); 
-	            dto.setKnowledge(rs.getInt(4));; 
-	            
-	         }
+			if (rs.next() == true) {
+				dto.setTired(rs.getInt(1));
+				dto.setHungry(rs.getInt(2));
+				dto.setBoring(rs.getInt(3));
+				dto.setKnowledge(rs.getInt(4));
 
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      } finally {
-	         getClose();
-	      }
+			}
 
-	      return dto;
-	   }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+
+		return dto;
+	}
+	//----------------------------------------------
+	// 가챠
+	public int gotcha() {
+		int num = rd.nextInt(10) + 1;
+		return num;
+	}
+
 }

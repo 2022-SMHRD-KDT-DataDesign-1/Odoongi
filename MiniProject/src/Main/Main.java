@@ -10,36 +10,28 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
 		BabyEmotion baby = new BabyEmotion();
-		
-		
+
 		music.play(music.getMusicPath());
-		
+
 		baby.login();
 		System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
-						+ "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　[－][口][×]|\r\n"
-						+ "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
-						+ "|　안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요.　　　       |\r\n"
-						+ "|　정말인가요?　　　　　　　　　　　　　　　　　　　　　　　　 　       |\r\n"
-						+ "|　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿　　　        |\r\n"
-						+ "| 　　　｜예　　　　|　　　｜아마도?　 ｜ 　 |예　　  |　 　　      |\r\n"
-						+ "|　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣　　　	    |\r\n"
-						+ "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
-						+ "");
-        System.out.println();
-        System.out.println();
-       
-        sc.nextLine();
-        System.out.println();
-        System.out.println();
-        
+				+ "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　[－][口][×]|\r\n" + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+				+ "|　안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요.　　　       |\r\n" + "|　정말인가요?　　　　　　　　　　　　　　　　　　　　　　　　 　       |\r\n"
+				+ "|　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿　　　        |\r\n" + "| 　　　｜예　　　　|　　　｜아마도?　 ｜ 　 |예　　  |　 　　      |\r\n"
+				+ "|　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣　　　	    |\r\n" + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+				+ "");
+		System.out.println();
+		sc.nextLine();
+		System.out.println();
+		System.out.println();
+
 		// 바꿔보시죠
 		while (true) {
 			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
 			music_2.play(music_2.getMusicPath());
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]게임규칙설명 [5]종료 >> ");
 			int select = sc.nextInt();
-			
-			
+
 			if (select == 1) {
 				// 로그인
 				System.out.print("ID  : ");
@@ -55,26 +47,39 @@ public class Main {
 						int option = sc.nextInt();
 
 						if (option == 1) {
-							ct.hungry(dto);
 							// 밥먹기
+							baby.hungry();
+							ct.hungry(dto);
+							if (ct.isGameOver(dto) == false) {
+								System.out.println("GAME OVER\n");
+								break;
+							}
 						} else if (option == 2) {
 							// 놀기
+							baby.play();
 							ct.Play(dto);
-						if (ct.isGameOver(dto) == false)
-							System.out.println("GAME OVER");
-							break;
+							if (ct.isGameOver(dto) == false) {
+								System.out.println("GAME OVER\n");
+								break;
+							}
+
 						} else if (option == 3) {
 							// 잠자기
+							baby.sleep();
 							ct.sleep(dto);
-						if (ct.isGameOver(dto) == false)
-							System.out.println("GAME OVER");
-							break;
+							if (ct.isGameOver(dto) == false) {
+								System.out.println("GAME OVER\n");
+								break;
+							}
 
 						} else if (option == 4) {
 							// 공부
+							baby.knowledge();
 							ct.study(dto);
-//						if (ct.isGameOver(dto) == false)
-//							break;
+							if (ct.isGameOver(dto) == false) {
+								System.out.println("GAME OVER\n");
+								break;
+							}
 
 						} else if (option == 5) {
 							System.out.println("메인화면으로 돌아갑니다");
@@ -84,7 +89,7 @@ public class Main {
 						}
 
 					}
-					
+
 				}
 			} else if (select == 2) {
 				// 회원가입
