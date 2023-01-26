@@ -22,9 +22,10 @@ public class Main {
 				+ "");
 		System.out.println();
 		sc.nextLine();
+		music.stop();
 		System.out.println();
 		System.out.println();
-
+		
 		// 바꿔보시죠
 		while (true) {
 			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
@@ -42,12 +43,17 @@ public class Main {
 			int select = sc.nextInt();
 
 			if (select == 1) {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
 				// 로그인
 				System.out.print("ID  : ");
 				String id = sc.next();
 				System.out.print("PWD : ");
 				String pwd = sc.next();
 
+				btn.stop();
+				
 				BabyDTO dto = new BabyDTO(id, pwd);
 
 				if (ct.login(dto)) {
@@ -65,45 +71,84 @@ public class Main {
 						int option = sc.nextInt();
 
 						if (option == 1) {
+							Music btn1 = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+							btn1.play(btn.getMusicPath());
 							// 밥먹기
 							baby.hungry();
 							ct.hungry(dto);
 							
+							btn1.stop();
+							
 							if (ct.isGameOver(dto) == false) {
+								music_2.stop();
+								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
+								gameOver.play(btn.getMusicPath());
+								
 								System.out.println("GAME OVER\n");
 								baby.gameover();
+								
 								break;
 							}
 						} else if (option == 2) {
 							// 놀기
+							Music btn1 = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+							btn1.play(btn.getMusicPath());
+							
 							baby.play();
 							ct.Play(dto);
 							
+							btn1.stop();
+							
 							if (ct.isGameOver(dto) == false) {
+								music_2.stop();
+								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
+								gameOver.play(btn.getMusicPath());
+								
 								System.out.println("GAME OVER\n");
 								baby.gameover();
+						
 								break;
 							}
 
 						} else if (option == 3) {
 							// 잠자기
+							Music btn1 = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+							btn1.play(btn.getMusicPath());
+							
 							baby.sleep();
 							ct.sleep(dto);
 							
+							btn1.stop();
+							
 							if (ct.isGameOver(dto) == false) {
+								music_2.stop();
+								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
+								gameOver.play(btn.getMusicPath());
+								
 								System.out.println("GAME OVER\n");
 								baby.gameover();
+								
 								break;
 							}
 
 						} else if (option == 4) {
 							// 공부
+							Music btn1 = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+							btn1.play(btn.getMusicPath());
+							
 							baby.knowledge();
 							ct.study(dto);
 							
+							btn1.stop();
+							
 							if (ct.isGameOver(dto) == false) {
+								music_2.stop();
+								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
+								gameOver.play(btn.getMusicPath());
+								
 								System.out.println("GAME OVER\n");
 								baby.gameover();
+					
 								break;
 							}
 
@@ -117,6 +162,7 @@ public class Main {
 		                              + "|　                                |\r\n"
 		                              + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 		                              + "");
+							music_2.stop();
 							break;
 						} else {
 							System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
@@ -129,11 +175,15 @@ public class Main {
 		                              + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 		                              + "");
 						}
+						
 
 					}
 
 				}
 			} else if (select == 2) {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
 				// 회원가입
 				System.out.print("ID를 입력해주세요 >> ");
 				String id = sc.next();
@@ -142,16 +192,30 @@ public class Main {
 				System.out.print("오둥이 이름을 입력해주세요 >> ");
 				String bName = sc.next();
 				BabyDTO dto = new BabyDTO(id, pwd, bName);
+				
+				btn.stop();
 
 				ct.join(dto);
 				ct.NewBaby(dto);
 
 			} else if (select == 3) {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
+				btn.stop();
 				// 랭킹
 				ct.printRank();
 			} else if (select == 4) {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
+				btn.stop();
 				System.out.println("게임규칙 솰라솰라");
 			} else if (select == 5) {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
+				btn.stop();
 				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "|　오둥이 키우기!　　　　　　　[－][口][×]|\r\n"
 	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
@@ -163,6 +227,10 @@ public class Main {
 	                     + "");
 				break;
 			} else {
+				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
+				btn.play(btn.getMusicPath());
+				
+				btn.stop();
 				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
 	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣ |\r\n"
