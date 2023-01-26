@@ -167,10 +167,10 @@ public class BabyDAO {
 	         
 	         psmt.setInt(1, dto.getAge());
 	         psmt.setDouble(2, dto.getGrowth());
-	         psmt.setInt(3, dto.getTired() > 100 ? 100 : dto.getTired());
-	         psmt.setInt(4, dto.getHungry() > 100 ? 100 : dto.getHungry());
-	         psmt.setInt(5, dto.getBoring() > 100 ? 100 : dto.getBoring());
-	         psmt.setInt(6, dto.getKnowledge() > 100 ? 100 : dto.getKnowledge());
+	         psmt.setInt(3, dto.getTired() > 100 ? 100 : dto.getTired() < 0 ? 0 : dto.getTired());
+	         psmt.setInt(4, dto.getHungry() > 100 ? 100 : dto.getHungry() < 0 ? 0 : dto.getHungry());
+	         psmt.setInt(5, dto.getBoring() > 100 ? 100 : dto.getBoring() < 0 ? 0 : dto.getBoring());
+	         psmt.setInt(6, dto.getKnowledge() > 100 ? 100 : dto.getKnowledge() < 0 ? 0 : dto.getKnowledge());
 	         psmt.setString(7, dto.getId());
 
 	         row = psmt.executeUpdate();
