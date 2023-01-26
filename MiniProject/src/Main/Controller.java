@@ -24,7 +24,6 @@ public class Controller {
 	public boolean login(BabyDTO dto) {
 		boolean result = dao.login(dto); 
 		if (result) {
-			System.out.println("로그인 성공!! 즐거운 플레이 되세요!!");
 			return true;
 		} else {
 			System.out.println("로그인 실패 아이디와 비밀번호를 확인해주세요!!");
@@ -81,13 +80,14 @@ public class Controller {
 
 	// 현재 상태 출력
 	public void printBaby(BabyDTO dto) {
+		
 		BabyDAO dao = new BabyDAO();
-		BabyDTO dto2 = dao.printBaby(dto);
-
-		System.out.printf("피로도 %d\t", dto2.getTired());
-		System.out.printf("포만감 %d\t", dto2.getHungry());
-		System.out.printf("지루해 %d\t", dto2.getBoring());
-		System.out.printf("지식 %d\n", dto2.getKnowledge());
+		ArrayList<Integer> list = dao.printBaby(dto);
+		
+		System.out.printf("피로도 %d\t", list.get(0));
+		System.out.printf("포만감 %d\t", list.get(1));
+		System.out.printf("지루해 %d\t", list.get(2));
+		System.out.printf("지식 %d\n", list.get(3));
 
 	}
 	
@@ -98,10 +98,10 @@ public class Controller {
 		int hungry = dto.getHungry();
 		int boring = dto.getBoring();
 		int knowledge = dto.getKnowledge();
-		
-		if (tired == 0 || hungry == 0 || boring >= 50 || knowledge == 0) {
-			return false;
-		}
+//		
+//		if (tired == 0 || hungry == 0 || boring >= 50 || knowledge == 0) {
+//			return false;
+//		}
 		
 		return true;
 	}

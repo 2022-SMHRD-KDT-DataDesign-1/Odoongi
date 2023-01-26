@@ -2,13 +2,13 @@ package Main;
 
 public class BabyDTO {
 
-	private int tired = 0;
-	private int hungry = 0;
-	private int boring = 0;
-	private int knowledge = 0;
-	private double growth = 0.0;
+	private int tired;
+	private int hungry;
+	private int boring;
+	private int knowledge;
+	private double growth;
 
-	private int age = 0;
+	private int age;
 	
 	
 	private String bName;

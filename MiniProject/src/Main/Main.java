@@ -28,26 +28,27 @@ public class Main {
 					int option = sc.nextInt();
 
 					if (option == 1) {
+						ct.hungry(dto);
 						// 밥먹기
 						
 					} else if (option == 2) {
 						// 놀기
 						ct.Play(dto);
-						if (ct.isGameOver(dto) == false)
-							System.out.println("GAME OVER");
-							break;
+//						if (ct.isGameOver(dto) == false)
+//							System.out.println("GAME OVER");
+//							break;
 					} else if (option == 3) {
 						// 잠자기
 						ct.sleep(dto);
-						if (ct.isGameOver(dto) == false)
-							System.out.println("GAME OVER");
-							break;
+//						if (ct.isGameOver(dto) == false)
+//							System.out.println("GAME OVER");
+//							break;
 
 					} else if (option == 4) {
 						// 공부
 						ct.study(dto);
-						if (ct.isGameOver(dto) == false)
-							break;
+//						if (ct.isGameOver(dto) == false)
+//							break;
 
 					} else {
 						System.out.println("올바른 번호를 입력하세요");

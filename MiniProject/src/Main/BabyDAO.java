@@ -229,8 +229,10 @@ public class BabyDAO {
 	}
 
 	// 현재 상태 출력
-	public BabyDTO printBaby(BabyDTO dto) {
+	public ArrayList<Integer> printBaby(BabyDTO dto) {
 
+		ArrayList<Integer> list = new ArrayList<>();
+		
 		getCon();
 
 		try {
@@ -241,13 +243,16 @@ public class BabyDAO {
 
 			rs = psmt.executeQuery();
 
-			while (rs.next()) {
+			while (rs.next() == true) {
 				int tired = rs.getInt(1);
 				int hungry = rs.getInt(2);
 				int boring = rs.getInt(3);
-				int knowldege = rs.getInt(4);
+				int knowledge = rs.getInt(4);
 
-				dto = new BabyDTO(tired, hungry, boring, knowldege);
+				list.add(tired);
+				list.add(hungry);
+				list.add(boring);
+				list.add(knowledge);
 
 			}
 
@@ -257,6 +262,6 @@ public class BabyDAO {
 			getClose();
 		}
 
-		return dto;
+		return list;
 	}
 }
