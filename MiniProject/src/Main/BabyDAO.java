@@ -96,7 +96,7 @@ public class BabyDAO {
 		boolean result = false;
 
 		try {
-			String sql = "select * from USER_INFO where id = ? and pw = ?";
+			String sql = "select * from USER_INFO where id = ? and password = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPwd());
