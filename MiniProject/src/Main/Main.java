@@ -6,13 +6,40 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Music music = new Music("C:\\Users\\SMHRD\\Downloads\\뒹굴뒹굴.mp3");
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
+		BabyEmotion baby = new BabyEmotion();
+		
+		
+		music.play(music.getMusicPath());
+		
+		baby.login();
+		System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+						+ "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　[－][口][×]|\r\n"
+						+ "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+						+ "|　안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요.　　　       |\r\n"
+						+ "|　정말인가요?　　　　　　　　　　　　　　　　　　　　　　　　 　       |\r\n"
+						+ "|　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　　＿＿＿＿＿　　　        |\r\n"
+						+ "| 　　　｜예　　　　|　　　｜아마도?　 ｜ 　 |예　　  |　 　　      |\r\n"
+						+ "|　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　　￣￣￣￣￣　　　	    |\r\n"
+						+ "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+						+ "");
+        System.out.println();
+        System.out.println();
+       
+        sc.nextLine();
+        System.out.println();
+        System.out.println();
+        
 		// 바꿔보시죠
 		while (true) {
+			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
+			music_2.play(music_2.getMusicPath());
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]게임규칙설명 [5]종료 >> ");
 			int select = sc.nextInt();
-
+			
+			
 			if (select == 1) {
 				// 로그인
 				System.out.print("ID  : ");
@@ -57,8 +84,7 @@ public class Main {
 						}
 
 					}
-					System.out.println("GAME OVER");
-					break;
+					
 				}
 			} else if (select == 2) {
 				// 회원가입
