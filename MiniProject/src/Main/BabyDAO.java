@@ -89,17 +89,28 @@ public class BabyDAO {
 
 	public boolean login(BabyDTO dto) {
 
-		getCon();
-		boolean result = false;
+	      getCon();
+	      boolean result = false;
 
-		try {
-			String sql = "select * from USER_INFO where id = ? and password = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
-			psmt.setString(2, dto.getPwd());
-			rs = psmt.executeQuery();
+	      try {
+	         String sql = "SELECT NAME, AGE, A.ID, B_DATE, GROWTH"
+	               + ", TIRED, HUNGRY, BORING, KNOWLEDGE"
+	               + " FROM BABY A, USER_INFO B"
+	               + " WHERE B.ID = ? AND B.PASSWORD = ? AND A.ID = B.ID";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, dto.getId());
+	         psmt.setString(2, dto.getPwd());
+	         rs = psmt.executeQuery();
 
-			result = rs.next();
+	         result = rs.next();
+	         
+	         dto.setAge(rs.getInt("age"));
+	         dto.setGrowth(rs.getInt("growth"));
+	         dto.setTired(rs.getInt("tired"));
+	         dto.setHungry(rs.getInt("hungry"));
+	         dto.setBoring(rs.getInt("boring"));
+	         dto.setKnowledge(rs.getInt("knowledge"));
 
 		} catch (SQLException e) {
 
