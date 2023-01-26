@@ -8,7 +8,7 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
-
+		// 바꿔보시죠
 		while (true) {
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]종료 >> ");
 			int select = sc.nextInt();
@@ -30,7 +30,10 @@ public class Main {
 					if (option == 1) {
 						ct.hungry(dto);
 						// 밥먹기
-						
+						ct.hungry(dto);
+						if (ct.isGameOver(dto) == false)
+							System.out.println("GAME OVER");
+							break;
 					} else if (option == 2) {
 						// 놀기
 						ct.Play(dto);

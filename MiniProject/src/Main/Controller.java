@@ -45,7 +45,6 @@ public class Controller {
 		// test test
 		BabyDAO dao = new BabyDAO();
 		int row = dao.Play(dto);
-
 		if (row > 0)
 			printBaby(dto);
 	}
