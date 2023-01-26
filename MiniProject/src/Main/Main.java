@@ -28,7 +28,7 @@ public class Main {
 					int option = sc.nextInt();
 
 					if (option == 1) {
-						// 밥먹기
+						// 밥먹기 test
 						ct.hungry(dto);
 						if (ct.isGameOver(dto) == false)
 							System.out.println("GAME OVER");
