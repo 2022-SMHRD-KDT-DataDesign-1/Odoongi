@@ -25,7 +25,7 @@ public class BabyDAO {
 			conn = DriverManager.getConnection(url, user, pwd);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("회원가입 : 데이터베이스 연결 실패");
+			System.out.println("데이터베이스 연결 실패");
 			e.printStackTrace();
 		}
 
@@ -88,6 +88,30 @@ public class BabyDAO {
 		return row;
 		
 		
+	}
+	
+	public boolean login(BabyDTO dto) {
+
+		getCon();
+		boolean result = false;
+
+		try {
+			String sql = "select * from USER_INFO where id = ? and pw = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			rs = psmt.executeQuery();
+
+			result = rs.next();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return result;
+
 	}
 	
 	// 랭킹 조회
@@ -204,7 +228,7 @@ public class BabyDAO {
 				int tired = rs.getInt(1);
 				int hungry = rs.getInt(2);
 				int boring = rs.getInt(3);
-				int knowldege = rs.getInt(3);
+				int knowldege = rs.getInt(4);
 
 				BabyDTO dto2 = new BabyDTO(tired, hungry, boring, knowldege);
 				list.add(dto2);
