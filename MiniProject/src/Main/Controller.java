@@ -83,9 +83,29 @@ public class Controller {
 		BabyDAO dao = new BabyDAO();
 		dto = dao.printBaby(dto);
 		
+//		printGuage("피로도", dto.getTired());
+//		printGuage("포만감", dto.getHungry());
+//		printGuage("지루함", dto.getBoring());
+//		printGuage("지식", dto.getKnowledge());
+		
+		
 		System.out.printf("피로도 %d 포만감 %d 지루함 %d 지식 %d\n",dto.getTired(), dto.getHungry(), dto.getBoring(),
 				dto.getKnowledge());
 	}
+	
+//	private void printGuage(String s, int g) {
+//		if (g >= 0 && g <= 20) {
+//			System.out.printf("%s : ▮▮▯▯▯▯▯▯▯\n", s);
+//		} else if (g > 20 && g <= 40) {
+//			System.out.printf("%s : ▮▮▮▮▯▯▯▯▯\n", s);
+//		} else if (g > 40 && g <= 60) {
+//			System.out.printf("%s : ▮▮▮▮▮▯▯▯▯\n", s);
+//		} else if (g > 60 && g <= 80) {
+//			System.out.printf("%s : ▮▮▮▮▮▮▮▯▯\n", s);
+//		} else if (g > 80 && g <= 100) {
+//			System.out.printf("%s : ▮▮▮▮▮▮▮▮▮\n", s);
+//		}
+//	}
 	
 	// 게임 오버 판단
 	public boolean isGameOver(BabyDTO dto) {
@@ -94,10 +114,10 @@ public class Controller {
 		int hungry = dto.getHungry();
 		int boring = dto.getBoring();
 		int knowledge = dto.getKnowledge();
-//		
-//		if (tired == 0 || hungry == 0 || boring >= 50 || knowledge == 0) {
-//			return false;
-//		}
+		
+		if (tired >= 100 || hungry == 0 || boring >= 80 || knowledge <= 20) {
+			return false;
+		}
 		
 		return true;
 	}
