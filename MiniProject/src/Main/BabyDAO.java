@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class BabyDAO {
-	
+
 	Random rd = new Random();
 
 	Connection conn = null;
@@ -74,7 +74,7 @@ public class BabyDAO {
 
 		try {
 			getCon();
-			String sql = "insert into baby values (?, 0, ? ,default, 0, 0, 0, 0, 0, 100)";
+			String sql = "insert into baby values (?, 0, ? ,default, 0, 0, 100, 0, 100, 100)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getbName());
 			psmt.setString(2, dto.getId());
@@ -217,14 +217,17 @@ public class BabyDAO {
 		if (gotcha() == 1) {
 			dto.setTired(dto.getTired() + 0);
 			dto.setHungry(dto.getHungry() - 0);
-			dto.setBoring(dto.getBoring() - 60);
+			dto.setBoring(dto.getBoring() - 30);
 			dto.setKnowledge(dto.getKnowledge() - 0);
 			dto.setGrowth(dto.getGrowth() + 2.0);
+		} else {
+			dto.setTired(dto.getTired() + 5);
+			dto.setHungry(dto.getHungry() - 15);
+			dto.setBoring(dto.getBoring() - 20);
+			dto.setKnowledge(dto.getKnowledge() - 15);
+			dto.setGrowth(dto.getGrowth() + 1.0);
+
 		}
-		dto.setTired(dto.getTired() + 15);
-		dto.setHungry(dto.getHungry() - 30);
-		dto.setBoring(dto.getBoring() - 40);
-		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
 
@@ -235,18 +238,20 @@ public class BabyDAO {
 	public int hungry(BabyDTO dto) {
 		// test2
 		int row = 0;
-		
+
 		if (gotcha() == 1) {
-			dto.setTired(dto.getTired() + 5);
-			dto.setHungry(dto.getHungry() + 80);
-			dto.setBoring(dto.getBoring() - 60);
+			dto.setTired(dto.getTired() - 0);
+			dto.setHungry(dto.getHungry() + 30);
 			dto.setKnowledge(dto.getKnowledge() - 0);
 			dto.setGrowth(dto.getGrowth() + 2.0);
+			dto.setTired(dto.getTired() + 0);
+		} else {
+			dto.setTired(dto.getTired() + 15);
+			dto.setHungry(dto.getHungry() + 20);
+			dto.setKnowledge(dto.getKnowledge() - 5);
+			dto.setTired(dto.getBoring() + 5);
+			dto.setGrowth(dto.getGrowth() + 1.0);
 		}
-		dto.setTired(dto.getTired() + 15);
-		dto.setHungry(dto.getHungry() + 50);
-		dto.setBoring(dto.getBoring() - 20);
-		dto.setGrowth(dto.getGrowth() + 1.0);
 
 		row = updateBaby(dto, row);
 
@@ -257,19 +262,21 @@ public class BabyDAO {
 	public int sleep(BabyDTO dto) {
 
 		int row = 0;
-		
-		if (gotcha() == 1) {
-			dto.setTired(dto.getTired() - 100);
-			dto.setHungry(dto.getHungry() - 50);
-			dto.setBoring(dto.getBoring() - 60);
-			dto.setKnowledge(dto.getKnowledge() - 0);
-			dto.setGrowth(dto.getGrowth() + 2.0);
-		}
 
-		dto.setTired(dto.getTired() - 90);
-		dto.setHungry(dto.getHungry() - 70);
-		dto.setKnowledge(dto.getKnowledge() - 30);
-		dto.setGrowth(dto.getGrowth() + 1.0);
+		if (gotcha() == 1) {
+			dto.setTired(dto.getTired() - 30);
+			dto.setHungry(dto.getHungry() - 0);
+			dto.setKnowledge(dto.getKnowledge() - 0);
+			dto.setTired(dto.getBoring() + 0);
+			dto.setGrowth(dto.getGrowth() + 2.0);
+		} else {
+			dto.setTired(dto.getTired() - 15);
+			dto.setHungry(dto.getHungry() - 5);
+			dto.setKnowledge(dto.getKnowledge() - 5);
+			dto.setTired(dto.getBoring() + 5);
+			dto.setGrowth(dto.getGrowth() + 1.0);
+
+		}
 
 		row = updateBaby(dto, row);
 
@@ -280,19 +287,26 @@ public class BabyDAO {
 	public int study(BabyDTO dto) {
 
 		int row = 0;
+		if (gotcha() == 1) {
 
-		dto.setTired(dto.getTired() + 80);
-		dto.setHungry(dto.getHungry() - 30);
-		dto.setBoring(dto.getBoring() + 50);
-		dto.setKnowledge(dto.getKnowledge() + 50);
-		dto.setGrowth(dto.getGrowth() + 1.0);
+			dto.setTired(dto.getTired() - 0);
+			dto.setHungry(dto.getHungry() - 0);
+			dto.setBoring(dto.getBoring() + 0);
+			dto.setKnowledge(dto.getKnowledge() + 30);
+			dto.setGrowth(dto.getGrowth() + 2.0);
+		} else {
+			dto.setTired(dto.getTired() + 5);
+			dto.setHungry(dto.getHungry() - 5);
+			dto.setBoring(dto.getBoring() + 15);
+			dto.setKnowledge(dto.getKnowledge() + 20);
+			dto.setGrowth(dto.getGrowth() + 1.0);
+		}
 
 		row = updateBaby(dto, row);
 
 		return row;
 	}
 
-	
 	// 현재 상태 출력
 	public BabyDTO printBaby(BabyDTO dto) {
 
@@ -322,7 +336,8 @@ public class BabyDAO {
 
 		return dto;
 	}
-	//----------------------------------------------
+
+	// ----------------------------------------------
 	// 가챠
 	public int gotcha() {
 		int num = rd.nextInt(10) + 1;

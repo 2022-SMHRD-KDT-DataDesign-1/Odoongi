@@ -139,7 +139,7 @@ public class Controller {
 		int boring = dto.getBoring();
 		int knowledge = dto.getKnowledge();
 		
-		if (tired >= 100 || hungry == 0 || boring >= 80 || knowledge <= 20) {
+		if (tired >= 60 || hungry <= 40 || boring >= 60 || knowledge <= 40) {
 			return false;
 		}
 		
