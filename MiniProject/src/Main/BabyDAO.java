@@ -180,7 +180,7 @@ public class BabyDAO {
 
 	// 밥먹기
 		public int hungry(BabyDTO dto) {
-
+			// test
 			int row = 0;
 
 			dto.setTired(dto.getTired() - 15);
