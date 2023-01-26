@@ -22,15 +22,7 @@ public class Main {
 
 				BabyDTO dto = new BabyDTO(id, pwd);
 
-				// 아기 등록
-				System.out.println("======아기 키우기 시작======");
-				System.out.println("당신의 아기를 등록하세요 !");
-				System.out.print("아기 이름 입력하기 >> ");
-				String bName = sc.next();
-
-				dto.setbName(bName);
 				ct.login(dto);
-				ct.NewBaby(dto);
 
 				while (true) {
 					System.out.print("[1]밥먹기 [2]놀기 [3]잠자기 [4]공부하기 >> ");
