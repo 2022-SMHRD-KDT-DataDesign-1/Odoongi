@@ -8,7 +8,7 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
-
+		// 바꿔보시죠
 		while (true) {
 			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]종료 >> ");
 			int select = sc.nextInt();
