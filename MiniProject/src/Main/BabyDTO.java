@@ -8,7 +8,7 @@ public class BabyDTO {
 	private int knowledge = 0;
 	private double growth = 0.0;
 
-	private int age = (int)growth/10;
+	private int age = 0;
 	
 	
 	private String bName;
@@ -112,8 +112,8 @@ public class BabyDTO {
 	}
 
 	public void setAge(int age) {
-		this.age = age;
+		this.age = (int)growth/10;
 	}
 	
-
+	// for hansong
 }
