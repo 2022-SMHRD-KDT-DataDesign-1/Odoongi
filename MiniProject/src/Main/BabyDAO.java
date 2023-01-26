@@ -44,7 +44,6 @@ public class BabyDAO {
 		}
 	}
 
-	
 	public int join(BabyDTO dto) {
 		int row = 0;
 		Scanner sc = new Scanner(System.in);
@@ -56,7 +55,7 @@ public class BabyDAO {
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPwd());
 			row = psmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("SQL 전송 실패");
 			e.printStackTrace();
@@ -66,11 +65,10 @@ public class BabyDAO {
 		return row;
 
 	}
-	
-	
-	public int NewBaby (BabyDTO dto) {
+
+	public int NewBaby(BabyDTO dto) {
 		int row = 0;
-		
+
 		try {
 			getCon();
 			String sql = "insert into baby values (?, 0, ? ,default, 0, 100, 100, 100, 100, 100)";
@@ -78,7 +76,7 @@ public class BabyDAO {
 			psmt.setString(1, dto.getbName());
 			psmt.setString(2, dto.getId());
 			row = psmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("SQL 전송 실패");
 			e.printStackTrace();
@@ -86,10 +84,9 @@ public class BabyDAO {
 			getClose();
 		}
 		return row;
-		
-		
+
 	}
-	
+
 	public boolean login(BabyDTO dto) {
 
 		getCon();
@@ -113,7 +110,7 @@ public class BabyDAO {
 		return result;
 
 	}
-	
+
 	// 랭킹 조회
 	public ArrayList<BabyDTO> printRank() {
 		ArrayList<BabyDTO> list = new ArrayList<>();
@@ -145,14 +142,7 @@ public class BabyDAO {
 
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	private int updateBaby(BabyDTO dto, int row) {
 		try {
 			getCon();
@@ -178,7 +168,7 @@ public class BabyDAO {
 		return row;
 	}
 // 놀기
-	
+
 	public int Play(BabyDTO dto) {
 		int row = 0;
 
@@ -191,21 +181,22 @@ public class BabyDAO {
 
 		return row;
 	}
+
 	// 밥먹기
-		public int hungry(BabyDTO dto) {
-			// test2
-			int row = 0;
+	public int hungry(BabyDTO dto) {
+		// test2
+		int row = 0;
 
-			dto.setTired(dto.getTired() - 15);
-			dto.setHungry(dto.getHungry() + 20);
-			dto.setKnowledge(dto.getKnowledge() - 30);
-			dto.setGrowth(dto.getGrowth() + 1.0);
+		dto.setTired(dto.getTired() - 15);
+		dto.setHungry(dto.getHungry() + 20);
+		dto.setKnowledge(dto.getKnowledge() - 30);
+		dto.setGrowth(dto.getGrowth() + 1.0);
 
-			row = updateBaby(dto, row);
+		row = updateBaby(dto, row);
 
-			return row;
-		}
-	
+		return row;
+	}
+
 	// 잠자기
 	public int sleep(BabyDTO dto) {
 
@@ -236,11 +227,10 @@ public class BabyDAO {
 
 		return row;
 	}
-	
-	
+
 	// 현재 상태 출력
 	public BabyDTO printBaby(BabyDTO dto) {
-		
+
 		getCon();
 
 		try {
