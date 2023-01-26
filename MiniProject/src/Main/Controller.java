@@ -43,7 +43,17 @@ public class Controller {
 	}
 	
 	
+	//
+	public void hungry(BabyDTO dto) {
+		// test test
+		BabyDAO dao = new BabyDAO();
+		int row = dao.hungry(dto);
 
+		if (row > 0)
+			printBaby(dto);
+
+	}
+	
 	public void sleep(BabyDTO dto) {
 		BabyDAO dao = new BabyDAO();
 		int row = dao.sleep(dto);

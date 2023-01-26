@@ -29,10 +29,10 @@ public class Main {
 
 					if (option == 1) {
 						// 밥먹기
-
+						
 					} else if (option == 2) {
 						// 놀기
-
+						
 					} else if (option == 3) {
 						// 잠자기
 						ct.sleep(dto);
