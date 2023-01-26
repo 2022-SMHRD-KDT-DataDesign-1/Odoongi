@@ -23,7 +23,6 @@ public class Controller {
 	// 로그인 컨트롤러
 	public boolean login(BabyDTO dto) {
 		boolean result = dao.login(dto); 
-		System.out.println(result + "");
 		if (result) {
 			System.out.println("로그인 성공!! 즐거운 플레이 되세요!!");
 			return true;
