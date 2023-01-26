@@ -83,8 +83,8 @@ public class Controller {
 		BabyDAO dao = new BabyDAO();
 		dto = dao.printBaby(dto);
 		
-		System.out.println(dto.getTired()+" "+dto.getHungry()+" "+dto.getBoring()+" "
-				+dto.getKnowledge());
+		System.out.printf("피로도 %d 포만감 %d 지루함 %d 지식 %d\n",dto.getTired(), dto.getHungry(), dto.getBoring(),
+				dto.getKnowledge());
 	}
 	
 	// 게임 오버 판단

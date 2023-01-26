@@ -178,7 +178,7 @@ public class BabyDAO {
 		int row = 0;
 
 		dto.setTired(dto.getTired() - 15);
-		dto.setHungry(dto.getHungry() + 20);
+		dto.setHungry(dto.getHungry() - 20);
 		dto.setKnowledge(dto.getKnowledge() - 30);
 		dto.setGrowth(dto.getGrowth() + 1.0);
 

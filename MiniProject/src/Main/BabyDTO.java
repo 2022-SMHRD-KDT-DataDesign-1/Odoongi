@@ -112,7 +112,7 @@ public class BabyDTO {
 	}
 
 	public void setAge(int age) {
-		this.age = (int)growth/10;
+		this.age = age;
 	}
 	
 	// for hansong

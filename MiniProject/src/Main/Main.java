@@ -15,9 +15,9 @@ public class Main {
 
 			if (select == 1) {
 				// 로그인
-				System.out.println("ID  : ");
+				System.out.print("ID  : ");
 				String id = sc.next();
-				System.out.println("PWD : ");
+				System.out.print("PWD : ");
 				String pwd = sc.next();
 
 				BabyDTO dto = new BabyDTO(id, pwd);
