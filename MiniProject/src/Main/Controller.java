@@ -41,7 +41,7 @@ public class Controller {
 			System.out.println("오둥이 입양 실패ㅠㅠ");
 		}		
 	}
-	
+	//
 	public void hungry(BabyDTO dto) {
 		// test test
 		BabyDAO dao = new BabyDAO();
