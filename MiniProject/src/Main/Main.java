@@ -29,7 +29,11 @@ public class Main {
 
 					if (option == 1) {
 						// 밥먹기
-
+						ct.hungry(dto);
+						if (ct.isGameOver(dto) == false)
+							System.out.println("GAME OVER");
+							break;
+						
 					} else if (option == 2) {
 						// 놀기
 
