@@ -29,7 +29,16 @@ public class Main {
 		while (true) {
 			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
 			music_2.play(music_2.getMusicPath());
-			System.out.print("[1]로그인 [2]회원가입 [3]랭킹 [4]게임규칙설명 [5]종료 >> ");
+			System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                 + "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　                    [－][口][×]   |\r\n"
+	                 + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣  |\r\n"
+	                 + "|                                                                       |\r\n"
+	                 + "|                                                                       |\r\n"
+	                 + "|　＿＿＿＿＿＿＿　　　　＿＿＿＿＿＿＿＿　　　 ＿＿＿＿＿＿　　　＿＿＿＿＿＿＿＿＿＿    ＿＿＿＿＿＿  |\r\n"
+	                 + "| ｜[1]로그인 ｜　　　｜[2]회원가입 ｜ 　 ｜[3]랭킹　｜   ｜[4]게임규칙설명｜　  ｜[5]종료｜  |\r\n"
+	                 + "|　￣￣￣￣￣￣￣　　　　￣￣￣￣￣￣￣￣　　　 ￣￣￣￣￣￣　　　￣￣￣￣￣￣￣￣￣￣    ￣￣￣￣￣￣  |\r\n"
+	                 + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                 + "");
 			int select = sc.nextInt();
 
 			if (select == 1) {
@@ -43,23 +52,36 @@ public class Main {
 
 				if (ct.login(dto)) {
 					while (ct.login(dto)) {
-						System.out.print("[1]밥먹기 [2]놀기 [3]잠자기 [4]공부하기 [5]메인화면으로 돌아가기>> ");
+						 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                           + "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　                         [－][口][×]|\r\n"
+		                           + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+		                           + "|                                                                            |\r\n"
+		                           + "|                                                                            |\r\n"
+		                           + "|　＿＿＿＿＿＿＿　　　　＿＿＿＿＿＿　　　 ＿＿＿＿＿＿　　　＿＿＿＿＿＿＿＿    ＿＿＿＿＿＿＿＿＿＿＿＿＿＿  |\r\n"
+		                           + "| ｜[1]밥먹기 ｜　　　｜[2]놀기 ｜ 　 ｜[3]잠자기｜   ｜[4]공부하기｜　  ｜[5]메인화면으로 돌아가기｜ |\r\n"
+		                           + "|　￣￣￣￣￣￣￣　　　　￣￣￣￣￣￣　　　 ￣￣￣￣￣￣　　　￣￣￣￣￣￣￣￣    ￣￣￣￣￣￣￣￣￣￣￣￣￣￣  |\r\n"
+		                           + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                           + "");
 						int option = sc.nextInt();
 
 						if (option == 1) {
 							// 밥먹기
 							baby.hungry();
 							ct.hungry(dto);
+							
 							if (ct.isGameOver(dto) == false) {
 								System.out.println("GAME OVER\n");
+								baby.gameover();
 								break;
 							}
 						} else if (option == 2) {
 							// 놀기
 							baby.play();
 							ct.Play(dto);
+							
 							if (ct.isGameOver(dto) == false) {
 								System.out.println("GAME OVER\n");
+								baby.gameover();
 								break;
 							}
 
@@ -67,8 +89,10 @@ public class Main {
 							// 잠자기
 							baby.sleep();
 							ct.sleep(dto);
+							
 							if (ct.isGameOver(dto) == false) {
 								System.out.println("GAME OVER\n");
+								baby.gameover();
 								break;
 							}
 
@@ -76,16 +100,34 @@ public class Main {
 							// 공부
 							baby.knowledge();
 							ct.study(dto);
+							
 							if (ct.isGameOver(dto) == false) {
 								System.out.println("GAME OVER\n");
+								baby.gameover();
 								break;
 							}
 
 						} else if (option == 5) {
-							System.out.println("메인화면으로 돌아갑니다");
+							System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                              + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
+		                              + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+		                              + "|        ＿＿＿＿＿＿＿＿＿＿＿＿＿        |\r\n"
+		                              + "|        ｜메인화면으로 돌아갑니다｜       |\r\n"
+		                              + "|　       ￣￣￣￣￣￣￣￣￣￣￣￣￣        |\r\n"
+		                              + "|　                                |\r\n"
+		                              + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                              + "");
 							break;
 						} else {
-							System.out.println("올바른 번호를 입력하세요");
+							System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                              + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
+		                              + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+		                              + "|        ＿＿＿＿＿＿＿＿＿＿＿＿＿＿       |\r\n"
+		                              + "|        ｜올바른 번호를 입력하세요｜      |\r\n"
+		                              + "|　       ￣￣￣￣￣￣￣￣￣￣￣￣￣￣      |\r\n"
+		                              + "|　                                |\r\n"
+		                              + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+		                              + "");
 						}
 
 					}
@@ -110,13 +152,30 @@ public class Main {
 			} else if (select == 4) {
 				System.out.println("게임규칙 솰라솰라");
 			} else if (select == 5) {
-				System.out.println("종료되었습니다");
+				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                     + "|　오둥이 키우기!　　　　　　　[－][口][×]|\r\n"
+	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+	                     + "|        ＿＿＿＿＿＿＿＿＿           |\r\n"
+	                     + "|        ｜종료되었습니다｜           |\r\n"
+	                     + "|　       ￣￣￣￣￣￣￣￣￣           |\r\n"
+	                     + "|　                              |\r\n"
+	                     + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                     + "");
 				break;
 			} else {
-				System.out.println("올바른 숫자를 입력하세요");
+				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                     + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
+	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣ |\r\n"
+	                     + "|        ＿＿＿＿＿＿＿＿＿＿＿＿＿＿       |\r\n"
+	                     + "|        ｜올바른 번호를 입력하세요｜      |\r\n"
+	                     + "|　       ￣￣￣￣￣￣￣￣￣￣￣￣￣￣       |\r\n"
+	                     + "|　                                |\r\n"
+	                     + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+	                     + "");
 			}
 		}
 
 	}
+
 
 }
