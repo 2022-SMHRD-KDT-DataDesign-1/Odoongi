@@ -15,18 +15,6 @@ public class BabyDTO {
 	private String id;
 	private String pwd;
 
-	public BabyDTO(int tired, int hungry, int boring, int knowledge) {
-		super();
-		this.tired = tired;
-		this.hungry = hungry;
-		this.boring = boring;
-		this.knowledge = knowledge;
-	}
-
-	public BabyDTO(String id, String pwd) {
-		this.id = id;
-		this.pwd = pwd;
-	}
 
 	public String getId() {
 		return id;

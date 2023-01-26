@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 
+
 public class Controller {
 	
 	BabyDAO dao = new BabyDAO();
@@ -61,14 +62,12 @@ public class Controller {
 	// 현재 상태 출력
 	public void printBaby(BabyDTO dto) {
 		BabyDAO dao = new BabyDAO();
-		ArrayList<BabyDTO> list = dao.printBaby(dto);
+		BabyDTO dto2 = dao.printBaby(dto);
 
-		for (int i = 0; i < list.size(); i++) {
-			System.out.printf("피로도 %d\t", list.get(i).getTired());
-			System.out.printf("포만감 %d\t", list.get(i).getHungry());
-			System.out.printf("지루해 %d\t", list.get(i).getBoring());
-			System.out.printf("지식 %d\n", list.get(i).getKnowledge());
-		}
+		System.out.printf("피로도 %d\t", dto2.getTired());
+		System.out.printf("포만감 %d\t", dto2.getHungry());
+		System.out.printf("지루해 %d\t", dto2.getBoring());
+		System.out.printf("지식 %d\n", dto2.getKnowledge());
 
 	}
 	

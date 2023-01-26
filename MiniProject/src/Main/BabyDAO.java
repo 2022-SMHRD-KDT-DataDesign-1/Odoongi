@@ -211,16 +211,15 @@ public class BabyDAO {
 	
 	
 	// 현재 상태 출력
-	public ArrayList<BabyDTO> printBaby(BabyDTO dto) {
-		ArrayList<BabyDTO> list = new ArrayList<>();
-
+	public BabyDTO printBaby(BabyDTO dto) {
+		
 		getCon();
 
 		try {
 
-			String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE B_NAME = ?";
+			String sql = "SELECT TIRED, HUNGRY, BORING, KNOWLEDGE FROM BABY WHERE ID = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getbName());
+			psmt.setString(1, dto.getId());
 
 			rs = psmt.executeQuery();
 
@@ -230,8 +229,7 @@ public class BabyDAO {
 				int boring = rs.getInt(3);
 				int knowldege = rs.getInt(4);
 
-				BabyDTO dto2 = new BabyDTO(tired, hungry, boring, knowldege);
-				list.add(dto2);
+				dto = new BabyDTO(tired, hungry, boring, knowldege);
 
 			}
 
@@ -241,6 +239,6 @@ public class BabyDAO {
 			getClose();
 		}
 
-		return list;
+		return dto;
 	}
 }
