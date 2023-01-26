@@ -3,7 +3,7 @@ package Main;
 public class BabyDTO {
 
 	private int tired = 0;
-	private int hungry = 100;
+	private int hungry = 0;
 	private int boring = 0;
 	private int knowledge = 0;
 	private double growth = 0.0;
