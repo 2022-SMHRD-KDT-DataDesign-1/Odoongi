@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Music music = new Music("C:\\Users\\user\\git\\Odoongi\\MiniProject\\src\\뒹굴뒹굴.mp3");
+		Music music = new Music("C:\\Users\\SMHRD\\Downloads\\뒹굴뒹굴.mp3");
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
 		BabyEmotion baby = new BabyEmotion();
@@ -25,11 +25,12 @@ public class Main {
 		music.stop();
 		System.out.println();
 		System.out.println();
-		
+		Music music2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
+		music2.play(music2.getMusicPath());
 		// 바꿔보시죠
 		while (true) {
-			Music music2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
-			music2.play(music2.getMusicPath());
+//			Music music2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
+//			music2.play(music2.getMusicPath());
 			System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                 + "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　                    [－][口][×]   |\r\n"
 	                 + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣  |\r\n"
@@ -258,7 +259,6 @@ public class Main {
 				BabyDTO dto = new BabyDTO(id, pwd, bName);
 				
 				btn.stop();
-				music2.stop();
 				ct.join(dto);
 				ct.NewBaby(dto);
 
@@ -269,7 +269,6 @@ public class Main {
 				// 랭킹
 				ct.printRank();
 				btn.stop();
-				music2.stop();
 			} else if (select == 4) {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
@@ -291,13 +290,13 @@ public class Main {
                         + "|                                                    |\r\n"
                         + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
                         + "");
-				btn.stop();
+				
 				sc.nextLine();
 				String end = sc.nextLine();
 				if("\n".equals(end)) {
+					btn.stop();
 					break;
 				}
-				music2.stop();
 			} else if (select == 5) {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
@@ -328,7 +327,6 @@ public class Main {
 	                     + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "");
 				 btn.stop();
-				 music2.stop();
 			}
 		}
 
