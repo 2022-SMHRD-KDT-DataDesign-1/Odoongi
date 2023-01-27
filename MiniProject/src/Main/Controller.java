@@ -12,14 +12,16 @@ public class Controller {
 	
 	BabyDAO dao = new BabyDAO();
 	//회원가입 컨트롤러
-	public void join(BabyDTO dto) {
-		int row = dao.join(dto);
-		if (row > 0) {
-			System.out.println("회원가입 성공!! 로그인 후 이용해주세요");
-		} else {
-			System.out.println("회원가입 실패");
-		}
-	}
+	public boolean join(BabyDTO dto) {
+	      int row = dao.join(dto);
+	      if (row > 0) {
+	         System.out.println("회원가입 성공!! 로그인 후 이용해주세요");
+	         return true;
+	      } else {
+	         System.out.println("회원가입 실패!! 다시 입력해주세요");
+	         return false;
+	      }
+	   }
 	// 로그인 컨트롤러
 	public boolean login(BabyDTO dto) {
 		boolean result = dao.login(dto); 
@@ -41,7 +43,7 @@ public class Controller {
 		}		
 	}
 	
-	public void Play(BabyDTO dto) {
+	public void Play(BabyDTO dto) throws InterruptedException {
 		// test test
 		BabyDAO dao = new BabyDAO();
 		int row = dao.Play(dto);
@@ -49,7 +51,7 @@ public class Controller {
 			printBaby(dto);
 	}
 	//
-	public void hungry(BabyDTO dto) {
+	public void hungry(BabyDTO dto) throws InterruptedException {
 		// test test
 		BabyDAO dao = new BabyDAO();
 		int row = dao.hungry(dto);
@@ -59,7 +61,7 @@ public class Controller {
 
 	}
 	
-	public void sleep(BabyDTO dto) {
+	public void sleep(BabyDTO dto) throws InterruptedException {
 		BabyDAO dao = new BabyDAO();
 		int row = dao.sleep(dto);
 
@@ -68,7 +70,7 @@ public class Controller {
 
 	}
 
-	public void study(BabyDTO dto) {
+	public void study(BabyDTO dto) throws InterruptedException {
 		BabyDAO dao = new BabyDAO();
 		int row = dao.study(dto);
 
@@ -78,8 +80,8 @@ public class Controller {
 	}
 
 	// 현재 상태 출력
-	public void printBaby(BabyDTO dto) {
-		
+	public void printBaby(BabyDTO dto) throws InterruptedException {
+		Thread.sleep(1000);
 		BabyDAO dao = new BabyDAO();
 		dto = dao.printBaby(dto);
 		System.out.println("┌────────────────────────────────────────────────┐\r\n"
@@ -94,7 +96,7 @@ public class Controller {
 				 		 
 		System.out.println("|                                                |\r\n"
 				 		 + "└────────────────────────────────────────────────┘");
-		
+		Thread.sleep(1000);
 //		System.out.printf("피로도 %d 포만감 %d 지루함 %d 지식 %d\n",dto.getTired(), dto.getHungry(), dto.getBoring(),
 //				dto.getKnowledge());
 	}
