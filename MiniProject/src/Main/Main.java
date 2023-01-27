@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Music music = new Music(".\\\\src\\뒹굴뒹굴.mp3");
 		Scanner sc = new Scanner(System.in);
@@ -81,6 +81,7 @@ public class Main {
 							btn1.play(btn.getMusicPath());
 							// 밥먹기
 							baby.hungry();
+							Thread.sleep(100);
 							ct.hungry(dto);
 							
 							btn1.stop();
@@ -89,8 +90,8 @@ public class Main {
 								music2.stop();
 								Music gameOver = new Music(".\\\\src\\game_over.mp3");
 								gameOver.play(gameOver.getMusicPath());
-								
 								baby.gameover();
+								Thread.sleep(1000);
 								System.out.println(".                              |\r\n"
 										+ "  　╲　　　　　　　　　　　╱\r\n"
 										+ "  　　　　　　　　　　/\r\n"
@@ -118,6 +119,7 @@ public class Main {
 							btn1.play(btn.getMusicPath());
 							
 							baby.play();
+							Thread.sleep(100);
 							ct.Play(dto);
 							
 							btn1.stop();
@@ -126,8 +128,8 @@ public class Main {
 								music2.stop();
 								Music gameOver = new Music(".\\\\src\\game_over.mp3");
 								gameOver.play(gameOver.getMusicPath());
-								
 								baby.gameover();
+								Thread.sleep(1000);
 								System.out.println(".                              |\r\n"
 										+ "  　╲　　　　　　　　　　　╱\r\n"
 										+ "  　　　　　　　　　　/\r\n"
@@ -155,8 +157,9 @@ public class Main {
 							// 잠자기
 							Music btn1 = new Music(".\\\\src\\cute_click_12.mp3");
 							btn1.play(btn.getMusicPath());
-							
+							Thread.sleep(100);
 							baby.sleep();
+							Thread.sleep(100);
 							ct.sleep(dto);
 							
 							btn1.stop();
@@ -165,8 +168,9 @@ public class Main {
 								music2.stop();
 								Music gameOver = new Music(".\\\\src\\game_over.mp3");
 								gameOver.play(gameOver.getMusicPath());
-								
 								baby.gameover();
+								
+								Thread.sleep(1000);
 								System.out.println(".                              |\r\n"
 										+ "  　╲　　　　　　　　　　　╱\r\n"
 										+ "  　　　　　　　　　　/\r\n"
@@ -194,17 +198,18 @@ public class Main {
 							Music btn1 = new Music(".\\\\src\\cute_click_12.mp3");
 							btn1.play(btn.getMusicPath());
 							
+							Thread.sleep(100);
 							baby.knowledge();
+							Thread.sleep(100);
 							ct.study(dto);
-							
 							btn1.stop();
 							
 							if (ct.isGameOver(dto) == false) {
 								music2.stop();
 								Music gameOver = new Music(".\\\\src\\game_over.mp3");
 								gameOver.play(gameOver.getMusicPath());
-								
 								baby.gameover();
+								Thread.sleep(1000);
 								System.out.println(".                              |\r\n"
 										+ "  　╲　　　　　　　　　　　╱\r\n"
 										+ "  　　　　　　　　　　/\r\n"
