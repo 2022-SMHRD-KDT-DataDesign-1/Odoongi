@@ -82,15 +82,39 @@ public class Controller {
 		
 		BabyDAO dao = new BabyDAO();
 		dto = dao.printBaby(dto);
+		System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+						 + "|　 오둥이 키우보자!!　　　　　　　　　     　      　　　[-][口][×]|\r\n" 
+						 + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+						 + "|　 오둥이의 현재 상태     \t\t\t\t\t|" );
+						     printGuage("피로도", dto.getTired());
+						     printGuage("포만감", dto.getHungry());
+						     printGuage("지루함", dto.getBoring());
+						     printGuage("지 식", dto.getKnowledge());
+	    System.out.println("|　                                                     |" );
+						
+        System.out.println("￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n");
 		
-//		printGuage("피로도", dto.getTired());
-//		printGuage("포만감", dto.getHungry());
-//		printGuage("지루함", dto.getBoring());
-//		printGuage("지식", dto.getKnowledge());
-		
-		
-		System.out.printf("피로도 %d 포만감 %d 지루함 %d 지식 %d\n",dto.getTired(), dto.getHungry(), dto.getBoring(),
-				dto.getKnowledge());
+//		System.out.printf("피로도 %d 포만감 %d 지루함 %d 지식 %d\n",dto.getTired(), dto.getHungry(), dto.getBoring(),
+//				dto.getKnowledge());
+	}
+	
+	public void printGuage(String title, int num) {
+		if(num < 0) {
+			num = -num;
+		}
+		System.out.print("|  ");
+		System.out.print(title + "\t| ");
+		for(int i = 0; i < num / 10; i++) {
+			System.out.print("▮");
+			if(num / 10 > 10) {
+				System.out.println("\t\t\t\t|");
+				break;
+			}
+		}
+		for(int i = 0; i < 10 - (num / 10); i++) {
+			System.out.print("▯");
+		}
+		System.out.println("\t\t\t\t|");
 	}
 	
 //	private void printGuage(String s, int g) {
@@ -131,7 +155,7 @@ public class Controller {
 		
 		for (int i = 0; i < list.size(); i++) {
 			System.out.print(i + 1 + ".   " + list.get(i).getbName() + " \t ");
-			System.out.print(list.get(i).getAge() + " \t \t");
+//			System.out.print(list.get(i).getAge() + " \t \t");
 			System.out.print(list.get(i).getGrowth() + " \t \t");
 			System.out.println(list.get(i).getId() + " \t");
 		}

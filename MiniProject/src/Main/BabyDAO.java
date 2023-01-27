@@ -156,35 +156,61 @@ public class BabyDAO {
 	}
 
 	private int updateBaby(BabyDTO dto, int row) {
-		try {
-			getCon();
+	      try {
+	         getCon();
 
-			String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-					+ "WHERE ID = ?";
-			psmt = conn.prepareStatement(sql);
+	         String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
+	               + "WHERE ID = ?";
+	         psmt = conn.prepareStatement(sql);
 
-			dto.setAge((int) dto.getGrowth() / 10);
+	         dto.setAge((int)dto.getGrowth()/10);
+	         
+	         psmt.setInt(1, dto.getAge());
+	         psmt.setDouble(2, dto.getGrowth());
+	         psmt.setInt(3, dto.getTired() > 100 ? 100 : dto.getTired() < 0 ? 0 : dto.getTired());
+	         psmt.setInt(4, dto.getHungry() > 100 ? 100 : dto.getHungry() < 0 ? 0 : dto.getHungry());
+	         psmt.setInt(5, dto.getBoring() > 100 ? 100 : dto.getBoring() < 0 ? 0 : dto.getBoring());
+	         psmt.setInt(6, dto.getKnowledge() > 100 ? 100 : dto.getKnowledge() < 0 ? 0 : dto.getKnowledge());
+	         psmt.setString(7, dto.getId());
 
-			psmt.setInt(1, dto.getAge());
-			psmt.setDouble(2, dto.getGrowth());
-			psmt.setInt(3, dto.getTired());
-			psmt.setInt(4, dto.getHungry());
-			psmt.setInt(5, dto.getBoring());
-			psmt.setInt(6, dto.getKnowledge());
-			psmt.setString(7, dto.getId());
+	         row = psmt.executeUpdate();
 
-			row = psmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         getClose();
+	      }
+	      return row;
+	   }
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			getClose();
-		}
-		return row;
-	}
+//		try {
+//			getCon();
+//
+//			String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
+//					+ "WHERE ID = ?";
+//			psmt = conn.prepareStatement(sql);
+//
+//			dto.setAge((int) dto.getGrowth() / 10);
+//
+//			psmt.setInt(1, dto.getAge());
+//			psmt.setDouble(2, dto.getGrowth());
+//			psmt.setInt(3, dto.getTired());
+//			psmt.setInt(4, dto.getHungry());
+//			psmt.setInt(5, dto.getBoring());
+//			psmt.setInt(6, dto.getKnowledge());
+//			psmt.setString(7, dto.getId());
+//
+//			row = psmt.executeUpdate();
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			getClose();
+//		}
+//		return row;
+//	}
 
-// 놀기
-
+	// 놀기
 	public int Play(BabyDTO dto) {
 		int row = 0;
 

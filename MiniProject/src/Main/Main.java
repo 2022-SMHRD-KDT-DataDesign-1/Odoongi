@@ -28,8 +28,8 @@ public class Main {
 		
 		// 바꿔보시죠
 		while (true) {
-			Music music_2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
-			music_2.play(music_2.getMusicPath());
+			Music music2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
+			music2.play(music2.getMusicPath());
 			System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                 + "|　오둥이 키우기!　　　　　　　　　　　　　　　　　　　　　　                    [－][口][×]   |\r\n"
 	                 + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣  |\r\n"
@@ -80,14 +80,30 @@ public class Main {
 							btn1.stop();
 							
 							if (ct.isGameOver(dto) == false) {
-								music_2.stop();
+								music2.stop();
 								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
-								gameOver.play(btn.getMusicPath());
+								gameOver.play(gameOver.getMusicPath());
 								
-								System.out.println("GAME OVER\n");
 								baby.gameover();
-								
-								break;
+								System.out.println(".                              |\r\n"
+										+ "  　╲　　　　　　　　　　　╱\r\n"
+										+ "  　　　　　　　　　　/\r\n"
+										+ "  　　　╲　　　　　　　　╱\r\n"
+										+ "  　　╲　　    　　　　　╱\r\n"
+										+ "  -　-　　GAME OVER　　　-　-\r\n"
+										+ "  　　╱　PRESS ENTER 　╲\r\n"
+										+ "  　╱　　/                                 .\r\n"
+										+ "  　　╱　　　　　　　　╲\r\n"
+										+ "  　　　　　/　|　　　\r\n"
+										+ "  　　　　　　　.\r\n"
+										+ "");
+								sc.nextLine();
+								String end = sc.nextLine();
+								if("\n".equals(end)) {
+									gameOver.stop();
+									break;
+								}
+								music2.play(music2.getMusicPath());
 							}
 						} else if (option == 2) {
 							// 놀기
@@ -100,14 +116,31 @@ public class Main {
 							btn1.stop();
 							
 							if (ct.isGameOver(dto) == false) {
-								music_2.stop();
+								music2.stop();
 								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
-								gameOver.play(btn.getMusicPath());
+								gameOver.play(gameOver.getMusicPath());
 								
-								System.out.println("GAME OVER\n");
 								baby.gameover();
-						
-								break;
+								System.out.println(".                              |\r\n"
+										+ "  　╲　　　　　　　　　　　╱\r\n"
+										+ "  　　　　　　　　　　/\r\n"
+										+ "  　　　╲　　　　　　　　╱\r\n"
+										+ "  　　╲　　    　　　　　╱\r\n"
+										+ "  -　-　　GAME OVER　　　-　-\r\n"
+										+ "  　　╱　PRESS ENTER 　╲\r\n"
+										+ "  　╱　　/                                 .\r\n"
+										+ "  　　╱　　　　　　　　╲\r\n"
+										+ "  　　　　　/　|　　　\r\n"
+										+ "  　　　　　　　.\r\n"
+										+ "");
+								sc.nextLine();
+								String end = sc.nextLine();
+								if("\n".equals(end)) {
+									gameOver.stop();
+									
+									break;
+								}
+								music2.play(music2.getMusicPath());
 							}
 
 						} else if (option == 3) {
@@ -121,14 +154,30 @@ public class Main {
 							btn1.stop();
 							
 							if (ct.isGameOver(dto) == false) {
-								music_2.stop();
+								music2.stop();
 								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
-								gameOver.play(btn.getMusicPath());
+								gameOver.play(gameOver.getMusicPath());
 								
-								System.out.println("GAME OVER\n");
 								baby.gameover();
-								
-								break;
+								System.out.println(".                              |\r\n"
+										+ "  　╲　　　　　　　　　　　╱\r\n"
+										+ "  　　　　　　　　　　/\r\n"
+										+ "  　　　╲　　　　　　　　╱\r\n"
+										+ "  　　╲　　    　　　　　╱\r\n"
+										+ "  -　-　　GAME OVER　　　-　-\r\n"
+										+ "  　　╱　PRESS ENTER 　╲\r\n"
+										+ "  　╱　　/                                 .\r\n"
+										+ "  　　╱　　　　　　　　╲\r\n"
+										+ "  　　　　　/　|　　　\r\n"
+										+ "  　　　　　　　.\r\n"
+										+ "");
+								sc.nextLine();
+								String end = sc.nextLine();
+								if("\n".equals(end)) {
+									gameOver.stop();
+									break;
+								}
+								music2.play(music2.getMusicPath());
 							}
 
 						} else if (option == 4) {
@@ -142,14 +191,30 @@ public class Main {
 							btn1.stop();
 							
 							if (ct.isGameOver(dto) == false) {
-								music_2.stop();
+								music2.stop();
 								Music gameOver = new Music("C:\\Users\\SMHRD\\Downloads\\game_over.mp3");
-								gameOver.play(btn.getMusicPath());
+								gameOver.play(gameOver.getMusicPath());
 								
-								System.out.println("GAME OVER\n");
 								baby.gameover();
-					
-								break;
+								System.out.println(".                              |\r\n"
+										+ "  　╲　　　　　　　　　　　╱\r\n"
+										+ "  　　　　　　　　　　/\r\n"
+										+ "  　　　╲　　　　　　　　╱\r\n"
+										+ "  　　╲　　    　　　　　╱\r\n"
+										+ "  -　-　　GAME OVER　　　-　-\r\n"
+										+ "  　　╱　PRESS ENTER 　╲\r\n"
+										+ "  　╱　　/                                 .\r\n"
+										+ "  　　╱　　　　　　　　╲\r\n"
+										+ "  　　　　　/　|　　　\r\n"
+										+ "  　　　　　　　.\r\n"
+										+ "");
+								sc.nextLine();
+								String end = sc.nextLine();
+								if("\n".equals(end)) {
+									gameOver.stop();
+									break;
+								}
+								music2.play(music2.getMusicPath());
 							}
 
 						} else if (option == 5) {
@@ -162,7 +227,7 @@ public class Main {
 		                              + "|　                                |\r\n"
 		                              + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 		                              + "");
-							music_2.stop();
+							music2.stop();
 							break;
 						} else {
 							System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
@@ -194,7 +259,7 @@ public class Main {
 				BabyDTO dto = new BabyDTO(id, pwd, bName);
 				
 				btn.stop();
-
+				music2.stop();
 				ct.join(dto);
 				ct.NewBaby(dto);
 
@@ -202,20 +267,39 @@ public class Main {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
 				
-				btn.stop();
 				// 랭킹
 				ct.printRank();
+				btn.stop();
+				music2.stop();
 			} else if (select == 4) {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
 				
+			
+				System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+                        + "|　오둥이 키우기!　　　　　　　　            　[－][口][×]|\r\n"
+                        + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
+                        + "|        오둥이는 총 4가지 행동을 취할 수 있습니다.       |\r\n"
+                        + "|        오둥이의 행동에 따라 오둥이의 상태가 변합니다.     |\r\n"
+                        + "|        각 수치 중 하나라도 0이 되면 게임 종료 !        |\r\n"
+                        + "|　       행동 한 번에 성장률이 1씩 오르며              |\r\n"
+                        + "|　       성장률 순서대로 랭킹이 부여됩니다.             |\r\n"
+                        + "|　       오둥이를 잘 키워주세요!                     |\r\n"
+                        + "|　                                            |\r\n"
+                        + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
+                        + "");
 				btn.stop();
-				System.out.println("게임규칙 솰라솰라");
+				sc.nextLine();
+				String end = sc.nextLine();
+				if("\n".equals(end)) {
+					break;
+				}
+				music2.stop();
 			} else if (select == 5) {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
 				
-				btn.stop();
+				
 				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "|　오둥이 키우기!　　　　　　　[－][口][×]|\r\n"
 	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|\r\n"
@@ -225,12 +309,12 @@ public class Main {
 	                     + "|　                              |\r\n"
 	                     + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "");
+				btn.stop();
 				break;
 			} else {
 				Music btn = new Music("C:\\Users\\SMHRD\\Downloads\\cute_click_12.mp3");
 				btn.play(btn.getMusicPath());
 				
-				btn.stop();
 				 System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
 	                     + "|￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣ |\r\n"
@@ -240,6 +324,8 @@ public class Main {
 	                     + "|　                                |\r\n"
 	                     + "￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 	                     + "");
+				 btn.stop();
+				 music2.stop();
 			}
 		}
 
