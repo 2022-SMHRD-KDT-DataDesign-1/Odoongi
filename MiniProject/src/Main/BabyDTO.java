@@ -9,12 +9,10 @@ public class BabyDTO {
 	private double growth;
 
 	private int age;
-	
-	
+
 	private String bName;
 	private String id;
 	private String pwd;
-
 
 	public String getId() {
 		return id;
@@ -31,7 +29,7 @@ public class BabyDTO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
+
 	public BabyDTO(String bName, int age, String id, int growth) {
 		this.bName = bName;
 		this.age = age;
@@ -39,7 +37,6 @@ public class BabyDTO {
 		this.growth = growth;
 	}
 
-	
 	public BabyDTO(int tired, int hungry, int boring, int knowledge) {
 		super();
 		this.tired = tired;
@@ -114,6 +111,6 @@ public class BabyDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	// for hansong
 }

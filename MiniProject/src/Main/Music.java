@@ -1,6 +1,5 @@
 package Main;
 
-
 import javazoom.jl.player.MP3Player;
 
 public class Music {
@@ -18,14 +17,14 @@ public class Music {
 	MP3Player player = new MP3Player();
 
 	public Music(String musicPath) {
-        super();
-        this.musicPath = musicPath;
+		super();
+		this.musicPath = musicPath;
 	}
 
 	// 재생기능
 	public void play(String s) {
 		player.play(s);
-		
+
 	}
 
 	// 정지 기능
@@ -34,4 +33,3 @@ public class Music {
 	}
 
 }
-

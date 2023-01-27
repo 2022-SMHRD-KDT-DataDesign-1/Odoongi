@@ -67,7 +67,7 @@ public class BabyDAO {
 		return row;
 
 	}
-	
+
 	public int resetBaby(BabyDTO dto) {
 		int row = 0;
 
@@ -176,33 +176,32 @@ public class BabyDAO {
 	}
 
 	private int updateBaby(BabyDTO dto, int row) {
-	      try {
-	         getCon();
+		try {
+			getCon();
 
-	         String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-	               + "WHERE ID = ?";
-	         psmt = conn.prepareStatement(sql);
+			String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
+					+ "WHERE ID = ?";
+			psmt = conn.prepareStatement(sql);
 
-	         dto.setAge((int)dto.getGrowth()/10);
-	         
-	         psmt.setInt(1, dto.getAge());
-	         psmt.setDouble(2, dto.getGrowth());
-	         psmt.setInt(3, dto.getTired() > 100 ? 100 : dto.getTired() < 0 ? 0 : dto.getTired());
-	         psmt.setInt(4, dto.getHungry() > 100 ? 100 : dto.getHungry() < 0 ? 0 : dto.getHungry());
-	         psmt.setInt(5, dto.getBoring() > 100 ? 100 : dto.getBoring() < 0 ? 0 : dto.getBoring());
-	         psmt.setInt(6, dto.getKnowledge() > 100 ? 100 : dto.getKnowledge() < 0 ? 0 : dto.getKnowledge());
-	         psmt.setString(7, dto.getId());
+			dto.setAge((int) dto.getGrowth() / 10);
 
-	         row = psmt.executeUpdate();
+			psmt.setInt(1, dto.getAge());
+			psmt.setDouble(2, dto.getGrowth());
+			psmt.setInt(3, dto.getTired() > 100 ? 100 : dto.getTired() < 0 ? 0 : dto.getTired());
+			psmt.setInt(4, dto.getHungry() > 100 ? 100 : dto.getHungry() < 0 ? 0 : dto.getHungry());
+			psmt.setInt(5, dto.getBoring() > 100 ? 100 : dto.getBoring() < 0 ? 0 : dto.getBoring());
+			psmt.setInt(6, dto.getKnowledge() > 100 ? 100 : dto.getKnowledge() < 0 ? 0 : dto.getKnowledge());
+			psmt.setString(7, dto.getId());
 
-	      } catch (SQLException e) {
+			row = psmt.executeUpdate();
+
+		} catch (SQLException e) {
 //	         e.printStackTrace();
-	      } finally {
-	         getClose();
-	      }
-	      return row;
-	   }
-
+		} finally {
+			getClose();
+		}
+		return row;
+	}
 
 	// 놀기
 	public int Play(BabyDTO dto) {
