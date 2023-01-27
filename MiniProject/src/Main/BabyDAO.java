@@ -182,7 +182,11 @@ public class BabyDAO {
 	      }
 	      return row;
 	   }
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 1480cc793c25309f5038ed96a2ede8603320304c
 //		try {
 //			getCon();
 //

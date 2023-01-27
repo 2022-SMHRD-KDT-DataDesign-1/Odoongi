@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Music music = new Music("C:\\Users\\SMHRD\\Downloads\\뒹굴뒹굴.mp3");
+		Music music = new Music("C:\\Users\\user\\git\\Odoongi\\MiniProject\\src\\뒹굴뒹굴.mp3");
 		Scanner sc = new Scanner(System.in);
 		Controller ct = new Controller();
 		BabyEmotion baby = new BabyEmotion();
@@ -216,7 +216,6 @@ public class Main {
 								}
 								music2.play(music2.getMusicPath());
 							}
-
 						} else if (option == 5) {
 							System.out.println(" ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣\r\n"
 		                              + "|　오둥이 키우기!　　　　　　　　　[－][口][×]|\r\n"
