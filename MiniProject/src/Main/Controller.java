@@ -134,6 +134,7 @@ public class Controller {
 	
 	// 게임 오버 판단
 	public boolean isGameOver(BabyDTO dto) {
+		BabyDAO dao = new BabyDAO();
 		
 		int tired = dto.getTired();
 		int hungry = dto.getHungry();
@@ -143,6 +144,8 @@ public class Controller {
 		if (tired >= 60 || hungry <= 40 || boring >= 60 || knowledge <= 40) {
 			return false;
 		}
+		
+//		dao.NewBaby(dto);
 		
 		return true;
 	}

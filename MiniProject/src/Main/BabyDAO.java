@@ -29,7 +29,7 @@ public class BabyDAO {
 
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("데이터베이스 연결 실패");
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 
 	}
@@ -43,7 +43,7 @@ public class BabyDAO {
 			if (conn != null)
 				conn.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 	}
 
@@ -67,6 +67,27 @@ public class BabyDAO {
 		return row;
 
 	}
+	
+	public int resetBaby(BabyDTO dto) {
+		int row = 0;
+
+		try {
+			getCon();
+			String sql = "UPDATE BABY SET AGE = 0, GROWTH = 0, TIRED = 0, HUNGRY = 100, BORING = 0, KNOWLEDGE = 0";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getbName());
+			psmt.setString(2, dto.getId());
+			row = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("SQL 전송 실패");
+//			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return row;
+
+	}
 
 	public int NewBaby(BabyDTO dto) {
 		int row = 0;
@@ -81,7 +102,7 @@ public class BabyDAO {
 
 		} catch (SQLException e) {
 			System.out.println("SQL 전송 실패");
-			e.printStackTrace();
+//			e.printStackTrace();
 		} finally {
 			getClose();
 		}
@@ -175,7 +196,7 @@ public class BabyDAO {
 	         row = psmt.executeUpdate();
 
 	      } catch (SQLException e) {
-	         e.printStackTrace();
+//	         e.printStackTrace();
 	      } finally {
 	         getClose();
 	      }
@@ -302,7 +323,7 @@ public class BabyDAO {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} finally {
 			getClose();
 		}

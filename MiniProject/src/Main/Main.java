@@ -26,14 +26,14 @@ public class Main {
 						 + "|    └───────┘　\t \t \t└───────┘　\t |\r\n"
 						 + "└────────────────────────────────────────────────┘");
 		System.out.println();
-		sc.nextLine();
+		String x = sc.next();
 		music.stop();
 		System.out.println();
 		System.out.println();
 		Music music2 = new Music(".\\\\src\\game.mp3");
 		music2.play(music2.getMusicPath());
 		// 바꿔보시죠
-		while (true) {
+		while (x.equals("넹")) {
 //			Music music2 = new Music("C:\\Users\\SMHRD\\Downloads\\game.mp3");
 //			music2.play(music2.getMusicPath());
 			System.out.println("┌──────────────────────────────────────────────────────────────────┐\r\n"
