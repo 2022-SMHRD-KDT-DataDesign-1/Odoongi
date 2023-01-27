@@ -183,32 +183,6 @@ public class BabyDAO {
 	      return row;
 	   }
 
-//		try {
-//			getCon();
-//
-//			String sql = "UPDATE BABY SET AGE = ?, GROWTH = ?, TIRED = ?, HUNGRY = ?, BORING = ?, KNOWLEDGE = ?"
-//					+ "WHERE ID = ?";
-//			psmt = conn.prepareStatement(sql);
-//
-//			dto.setAge((int) dto.getGrowth() / 10);
-//
-//			psmt.setInt(1, dto.getAge());
-//			psmt.setDouble(2, dto.getGrowth());
-//			psmt.setInt(3, dto.getTired());
-//			psmt.setInt(4, dto.getHungry());
-//			psmt.setInt(5, dto.getBoring());
-//			psmt.setInt(6, dto.getKnowledge());
-//			psmt.setString(7, dto.getId());
-//
-//			row = psmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			getClose();
-//		}
-//		return row;
-//	}
 
 	// 놀기
 	public int Play(BabyDTO dto) {
@@ -249,7 +223,7 @@ public class BabyDAO {
 			dto.setTired(dto.getTired() + 15);
 			dto.setHungry(dto.getHungry() + 20);
 			dto.setKnowledge(dto.getKnowledge() - 5);
-			dto.setTired(dto.getBoring() + 5);
+			dto.setBoring(dto.getBoring() + 5);
 			dto.setGrowth(dto.getGrowth() + 1.0);
 		}
 
@@ -273,7 +247,7 @@ public class BabyDAO {
 			dto.setTired(dto.getTired() - 15);
 			dto.setHungry(dto.getHungry() - 5);
 			dto.setKnowledge(dto.getKnowledge() - 5);
-			dto.setTired(dto.getBoring() + 5);
+			dto.setBoring(dto.getBoring() + 5);
 			dto.setGrowth(dto.getGrowth() + 1.0);
 
 		}
