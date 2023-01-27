@@ -130,7 +130,7 @@ public class BabyDAO {
 		getCon();
 
 		try {
-			String sql = "SELECT * FROM ( SELECT NAME, AGE, ID, GROWTH FROM BABY WHERE AGE IS NOT NULL ORDER BY AGE, GROWTH DESC) WHERE ROWNUM <= 10";
+			String sql = "SELECT * FROM ( SELECT NAME, AGE, ID, GROWTH FROM BABY WHERE AGE IS NOT NULL ORDER BY GROWTH DESC) WHERE ROWNUM <= 10";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
