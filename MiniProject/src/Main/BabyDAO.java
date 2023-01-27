@@ -60,8 +60,7 @@ public class BabyDAO {
 			row = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			System.out.println("SQL 전송 실패");
-			e.printStackTrace();
+			System.out.println("이미 있는 아이디예요 ㅜ-ㅜ");
 		} finally {
 			getClose();
 		}
