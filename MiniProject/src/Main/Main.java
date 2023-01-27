@@ -271,9 +271,10 @@ public class Main {
 				String bName = sc.next();
 				BabyDTO dto = new BabyDTO(id, pwd, bName);
 				
-				btn.stop();
-				ct.join(dto);
-				ct.NewBaby(dto);
+			    btn.stop();
+	            if(ct.join(dto)) {
+	               ct.NewBaby(dto);
+	            }
 
 			} else if (select == 3) {
 				Music btn = new Music(".\\\\src\\cute_click_12.mp3");
@@ -326,6 +327,7 @@ public class Main {
 						 + "|                                                |\r\n"
 						 + "└────────────────────────────────────────────────┘");
 				btn.stop();
+				music2.stop();
 				break;
 			} else {
 				Music btn = new Music(".\\\\src\\cute_click_12.mp3");

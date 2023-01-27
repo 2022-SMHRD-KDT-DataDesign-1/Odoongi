@@ -12,14 +12,16 @@ public class Controller {
 	
 	BabyDAO dao = new BabyDAO();
 	//회원가입 컨트롤러
-	public void join(BabyDTO dto) {
-		int row = dao.join(dto);
-		if (row > 0) {
-			System.out.println("회원가입 성공!! 로그인 후 이용해주세요");
-		} else {
-			System.out.println("회원가입 실패");
-		}
-	}
+	public boolean join(BabyDTO dto) {
+	      int row = dao.join(dto);
+	      if (row > 0) {
+	         System.out.println("회원가입 성공!! 로그인 후 이용해주세요");
+	         return true;
+	      } else {
+	         System.out.println("회원가입 실패!! 다시 입력해주세요");
+	         return false;
+	      }
+	   }
 	// 로그인 컨트롤러
 	public boolean login(BabyDTO dto) {
 		boolean result = dao.login(dto); 
