@@ -110,6 +110,7 @@ public class Main {
 								}
 								music2.play(music2.getMusicPath());
 							}
+							break;
 						} else if (option == 2) {
 							// 놀기
 							Music btn1 = new Music(".\\\\src\\cute_click_12.mp3");
@@ -147,7 +148,7 @@ public class Main {
 								}
 								music2.play(music2.getMusicPath());
 							}
-
+							break;
 						} else if (option == 3) {
 							// 잠자기
 							Music btn1 = new Music(".\\\\src\\cute_click_12.mp3");
@@ -184,7 +185,7 @@ public class Main {
 								}
 								music2.play(music2.getMusicPath());
 							}
-
+							break;
 						} else if (option == 4) {
 							// 공부
 							Music btn1 = new Music(".\\\\src\\cute_click_12.mp3");
@@ -221,6 +222,7 @@ public class Main {
 								}
 								music2.play(music2.getMusicPath());
 							}
+							break;
 						} else if (option == 5) {
 							System.out.println("┌────────────────────────────────────────────────┐\r\n"
 											 + "|  오둥이 키우기!!　　　　　　　　　　          [ㅡ][口][×]|\r\n" 
@@ -321,7 +323,6 @@ public class Main {
 						 + "|                                                |\r\n"
 						 + "└────────────────────────────────────────────────┘");
 				btn.stop();
-				music2.stop();
 				break;
 			} else {
 				Music btn = new Music(".\\\\src\\cute_click_12.mp3");
