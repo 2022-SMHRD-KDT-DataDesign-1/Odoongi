@@ -151,11 +151,10 @@ public class Controller {
 		BabyDAO dao = new BabyDAO();
 		ArrayList<BabyDTO> list = dao.printRank();
 		
-		System.out.println("순위  아기 이름 \t 아기 나이 \t아기 성장률 \tID \t");
+		System.out.println("순위  아기 이름 \t아기 성장률 \tID \t");
 		
 		for (int i = 0; i < list.size(); i++) {
 			System.out.print(i + 1 + ".   " + list.get(i).getbName() + " \t ");
-//			System.out.print(list.get(i).getAge() + " \t \t");
 			System.out.print(list.get(i).getGrowth() + " \t \t");
 			System.out.println(list.get(i).getId() + " \t");
 		}
